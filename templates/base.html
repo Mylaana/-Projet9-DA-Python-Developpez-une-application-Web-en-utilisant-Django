@@ -2,16 +2,17 @@
 <html>
     <head>
         <title>LITReview</title>
+        <link rel="shortcut icon" type="image/png" href="{% static 'site_icon.png' %}"/>
         <link rel="stylesheet" href="{% static 'base.css' %}" />
         {% block styles %}{% endblock styles %}
     </head>
     <body>
         <header>
             <div class="base-header">
-                <div class="base-header-link"><a href="/flux/">Flux</a></div>
-                <div class="base-header-link"><a href="/posts/">Posts</a></div>
-                <div class="base-header-link"><a href="/abonnements/">Abonnements</a></div>
-                <div class="base-header-link"><a href="">Se déconnecter</a></div>
+                <div class="box-header-link"><a href="/flux/">Flux</a></div>
+                <div class="box-header-link"><a href="/posts/">Posts</a></div>
+                <div class="box-header-link"><a href="/abonnements/">Abonnements</a></div>
+                <div class="box-header-link"><a href="">Se déconnecter</a></div>
             </div>
         </header>
         {% block content %}{% endblock content %}        
