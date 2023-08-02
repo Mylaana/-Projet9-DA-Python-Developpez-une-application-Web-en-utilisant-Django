@@ -1,13 +1,16 @@
+{% load static %}
 <html>
     <head>
         <title>LITReview</title>
+        {% block styles %}{% endblock styles %}
     </head>
     <body>
-        <div>
-            <p>a</p>
-            <p>b</p>
-            <p>c</p>
-        </div>
+        <header>
+            <a href="flux">Flux</a>
+            <a href="posts/">Posts</a>
+            <a href="abonnements/">Abonnements</a>
+            <a href="">Se déconnecter</a>
+        </header>
         {% block content %}{% endblock content %}        
     </body>
 </html>
