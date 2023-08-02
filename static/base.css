@@ -1,0 +1,9 @@
+body {
+    margin: 0;
+}
+.base-header {
+    background-color: grey;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-end;
+}

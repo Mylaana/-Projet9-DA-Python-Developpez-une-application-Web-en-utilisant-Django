@@ -2,14 +2,17 @@
 <html>
     <head>
         <title>LITReview</title>
+        <link rel="stylesheet" href="{% static 'base.css' %}" />
         {% block styles %}{% endblock styles %}
     </head>
     <body>
         <header>
-            <a href="flux">Flux</a>
-            <a href="posts/">Posts</a>
-            <a href="abonnements/">Abonnements</a>
-            <a href="">Se déconnecter</a>
+            <div class="base-header">
+                <div><a href="flux">Flux</a></div>
+                <div><a href="posts/">Posts</a></div>
+                <div><a href="abonnements/">Abonnements</a></div>
+                <div><a href="">Se déconnecter</a></div>
+            </div>
         </header>
         {% block content %}{% endblock content %}        
     </body>
