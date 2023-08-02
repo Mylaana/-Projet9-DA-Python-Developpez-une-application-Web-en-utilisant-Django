@@ -5,8 +5,8 @@ body {
     background-color: grey;
     display: flex;
     flex-direction: row;
-    align-content: center;
+    
 }
-.base-header-link {
+.box-header-link {
     padding: 10px;
 }
