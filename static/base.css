@@ -4,6 +4,9 @@ body {
 .base-header {
     background-color: grey;
     display: flex;
-    flex-wrap: wrap;
-    align-content: flex-end;
+    flex-direction: row;
+    align-content: center;
+}
+.base-header-link {
+    padding: 10px;
 }

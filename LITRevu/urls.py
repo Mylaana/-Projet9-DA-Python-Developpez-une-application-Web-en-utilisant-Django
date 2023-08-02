@@ -22,7 +22,8 @@ import blog.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', blog.views.display_index, name="index"),
-    path('flux/', blog.views.display_index, name="flux"),
-    path('posts/', blog.views.display_index, name="posts"),
-    path('abonnements/', blog.views.display_index, name="abonnements"),
+    path('index/', blog.views.display_index, name="flux"),
+    path('flux/', blog.views.display_flux, name="flux"),
+    path('posts/', blog.views.display_posts, name="posts"),
+    path('abonnements/', blog.views.display_abonnements, name="abonnements"),
 ]
