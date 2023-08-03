@@ -16,3 +16,7 @@ def display_posts(request):
 
 def display_abonnements(request):
     return render(request, "blog/abonnements.html")
+
+
+def log_out(request):
+    return render(request, "blog/index.html")

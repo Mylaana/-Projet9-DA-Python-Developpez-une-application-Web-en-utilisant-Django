@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}<title>LITRevu - Index</title>{% endblock title %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'authentication/sign-in.css' %}" />
+{% endblock styles %}
+
+
+{% block content %}
+<section>
+    <div class="styled-window">
+        <h1>Inscrivez-vous:</h1>
+        <form action="" method="post" novalidate>
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="form-field-container">
+                    <label>{{field.label}}</label>
+                    <p>{{field}} </p>
+                </div>
+            {% endfor %}
+            <div class="form-button">
+                <input class=btn type="button" onclick="location.href='/index/';" value="Retourner">
+                <input class=btn type="submit" value="S'inscrire">
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock content %}

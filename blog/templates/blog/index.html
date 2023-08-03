@@ -1,9 +1,29 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block title %}<title>LITRevu - Index</title>{% endblock title %}
 {% block styles %}
-    <link rel="stylesheet" href="{% static 'blog/styles.css' %}" />
+<link rel="stylesheet" href="{% static 'blog/styles.css' %}" />
+<link rel="stylesheet" href="{% static 'blog/index.css' %}" />
 {% endblock styles %}
+
 {% block content %}
-    <p>page index</p>
+<section class="sign_in">
+    <div class="styled-window">
+        <h1>Pas encore inscrit ?
+            <br>rejoignez-nous
+        </h1>
+        <a href="/sign-in/"><button class="btn">S'inscrire</button></a>
+    </div>
+</section>
+<section class="log_in">
+    <div class="styled-window">
+        <h1>Connectez-vous</h1>
+        <div><p>[user field name]</p></div>
+        <div><p>[user field pasword]</p></div>
+        <button class="btn">Se connecter</button>
+    </div>
+</section>
 {% endblock content %}
+
+{is_logged=="pouet"}

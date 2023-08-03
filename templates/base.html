@@ -1,20 +1,34 @@
 {% load static %}
+<!DOCTYPE html>
 <html>
     <head>
-        <title>LITReview</title>
+        <html lang="fr">
+        {% block title %}{% endblock title %}
         <link rel="shortcut icon" type="image/png" href="{% static 'site_icon.png' %}"/>
         <link rel="stylesheet" href="{% static 'base.css' %}" />
         {% block styles %}{% endblock styles %}
     </head>
     <body>
         <header>
-            <div class="base-header">
-                <div class="box-header-link"><a href="/flux/">Flux</a></div>
-                <div class="box-header-link"><a href="/posts/">Posts</a></div>
-                <div class="box-header-link"><a href="/abonnements/">Abonnements</a></div>
-                <div class="box-header-link"><a href="">Se déconnecter</a></div>
-            </div>
+            <nav>
+                <div class="navigation-grid">
+                    <div class="site_icon"><img src="{% static 'site_icon.png' %}" alt="icone site"></div>
+                    <div class="navigation-title"><p>LITReview</p></div>
+                    <div class="navigation-container">
+                        {% if not is_logged %}
+                            <a href="/flux/"><div class="navigation-box-link"><p>Flux</p></div></a>
+                            <a href="/posts/"><div class="navigation-box-link"><p>Posts</p></div></a>
+                            <a href="/abonnements/"><div class="navigation-box-link"><p>Abonnements</p></div></a>
+                            <a href="/index/"><div class="navigation-box-link"><p>Se déconnecter</p></div></a>
+                        {% else %}
+                            <p>not logged in : {{is_logged}} abc</p>
+                        {% endif %}
+                    </div>
+                </div>
+                </nav>
         </header>
-        {% block content %}{% endblock content %}        
+        <main>
+            {% block content %}{% endblock content %}
+        </main>
     </body>
 </html>
