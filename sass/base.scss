@@ -11,7 +11,7 @@ body {
 }
 .navigation-grid{
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     height: $navigation-bar-height;
     background-color: $global-palette-4;
     border-bottom: 0px transparent solid;
@@ -39,6 +39,7 @@ body {
     height: 100%;
     text-align: center;
     & a{
+        font-weight: bold;
         &:hover{
             border-bottom: $global-palette-6 5px solid;
         }
@@ -48,13 +49,12 @@ body {
     border: 1px solid $global-palette-4;
     border-radius: 10px;
     box-shadow: 0px 3px 15px $global-palette-8;
-    padding: 15px;
+    padding: 25px;
 }
 .btn{
     $btn-default-color: $global-palette-4;
     border: 2px solid $btn-default-color;
     border-radius: 10px;
-    /*box-shadow: 0px 1px 1px $global-palette-8;*/
     padding: 15px;
     &:hover{
         background-color: adjust-color($color: $btn-default-color, $saturation: -30%, $lightness: 0%, $alpha: 1.0);

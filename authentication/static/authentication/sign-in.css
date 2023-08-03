@@ -2,35 +2,47 @@ main {
   display: flex;
   justify-content: center;
   width: 100%;
-  margin-top: 5%;
 }
 
 main section {
-  width: 25%;
+  width: 30%;
+  margin-top: 5%;
   text-align: center;
   font-size: x-large;
 }
 
 .form-field-container {
   display: flex;
-  margin-bottom: 0.5em;
   justify-content: space-between;
-  padding-right: 5%;
-  padding-left: 5%;
+  align-items: center;
+}
+.form-field-container div {
+  width: 45%;
+}
+.form-field-container .form-label {
+  text-align: right;
+}
+.form-field-container .form-field {
+  text-align: left;
 }
 
 .form-button {
   display: flex;
-  justify-content: right;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn {
-  margin-right: 5%;
-  margin-top: 3%;
+  margin-right: 3%;
+  margin-left: 3%;
 }
 
 form {
-  margin-top: 1em;
+  margin-top: 5%;
+  height: 10em;
+}
+form > div {
+  height: 25%;
 }
 
 /*# sourceMappingURL=sign-in.css.map */

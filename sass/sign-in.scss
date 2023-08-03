@@ -4,29 +4,42 @@ main {
     display: flex;
     justify-content: center;
     width: 100%;
-    margin-top: 5%;
 }
 main section{
-    width: 25%;
+    width: 30%;
+    margin-top: 5%;
     text-align: center;
     font-size: x-large;
 }
 
 .form-field-container{
     display: flex;
-    margin-bottom: 0.5em;
     justify-content: space-between;
-    padding-right: 5%;
-    padding-left: 5%;
+    align-items: center;
+    div{
+        width:45%;
+    }
+    .form-label{
+        text-align: right;
+    }
+    .form-field{
+        text-align: left;
+    }
 }
 .form-button{
     display: flex;
-    justify-content: right;
+    align-items: center;
+    justify-content: center;
 }
 .btn{
-    margin-right: 5%;
-    margin-top: 3%;
+    $btn-margin : 3%;
+    margin-right: $btn-margin;
+    margin-left: $btn-margin;
 }
 form {
-    margin-top: 1em;
+    margin-top: 5%;
+    height: 10em;
+    & > div{
+        height: 25%;
+    }
 }

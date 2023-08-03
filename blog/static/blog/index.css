@@ -18,4 +18,10 @@ section > div {
   margin-left: 7%;
 }
 
+.btn {
+  font-size: medium;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
 /*# sourceMappingURL=index.css.map */

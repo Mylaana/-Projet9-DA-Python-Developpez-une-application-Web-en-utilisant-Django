@@ -19,3 +19,9 @@ section > div{
     margin-right: $section-horizontal-margin;
     margin-left: $section-horizontal-margin;
 }
+.btn{
+    font-size: medium;
+    $btn-horizontal-padding: 30px;
+    padding-left: $btn-horizontal-padding;
+    padding-right: $btn-horizontal-padding;
+}
