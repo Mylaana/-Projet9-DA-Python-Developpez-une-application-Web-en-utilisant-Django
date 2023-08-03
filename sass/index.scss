@@ -1,0 +1,21 @@
+@import "./variables";
+
+main {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 5%;
+}
+main > section{
+    width: 25%;
+    height: 50%;
+    text-align: center;
+    font-size: x-large;
+}
+section > div{
+    $section-horizontal-margin: 7%;
+
+    height: 20em; 
+    margin-right: $section-horizontal-margin;
+    margin-left: $section-horizontal-margin;
+}

@@ -3,6 +3,10 @@
 <html>
     <head>
         <html lang="fr">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+
         {% block title %}{% endblock title %}
         <link rel="shortcut icon" type="image/png" href="{% static 'site_icon.png' %}"/>
         <link rel="stylesheet" href="{% static 'base.css' %}" />
@@ -12,7 +16,7 @@
         <header>
             <nav>
                 <div class="navigation-grid">
-                    <div class="site_icon"><img src="{% static 'site_icon.png' %}" alt="icone site"></div>
+                    <div class="site_icon-container"><img class="site-icon" src="{% static 'site_icon.png' %}" alt="icone site"></div>
                     <div class="navigation-title"><p>LITReview</p></div>
                     <div class="navigation-container">
                         {% if not is_logged %}
