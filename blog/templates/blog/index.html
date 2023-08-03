@@ -18,9 +18,20 @@
 <section class="log_in">
     <div class="styled-window">
         <h1>Connectez-vous</h1>
-        <div><p>[user field name]</p></div>
-        <div><p>[user field pasword]</p></div>
-        <button class="btn">Se connecter</button>
+        <form action="" method="post" novalidate>
+            <div class=styled-window-internal>
+                {% csrf_token %}
+                {% for field in form %}
+                    <div class="form-field-container">
+                        <div class="form-label"><label>{{field.label}}</label></div>
+                        <div class="form-field"><p>{{field}} </p></div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="form-button">
+                <input class=btn type="submit" value="Se connecter">
+            </div>
+        </form>
     </div>
 </section>
 {% endblock content %}

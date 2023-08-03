@@ -56,6 +56,14 @@ body {
   padding: 25px;
 }
 
+.styled-window-internal {
+  background-color: #f0e7de;
+  padding: 20px;
+  border-radius: 10px;
+  border: solid 1px #66473a;
+  box-shadow: inset 0px 1px 5px #66473a;
+}
+
 .btn {
   border: 2px solid #d4b89f;
   border-radius: 10px;

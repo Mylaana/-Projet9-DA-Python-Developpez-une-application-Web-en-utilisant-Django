@@ -1,9 +1,10 @@
 from django.shortcuts import render
-
+from authentication.forms import LogIn
 
 # Create your views here.
 def display_index(request):
-    return render(request, "blog/index.html")
+    form = LogIn()
+    return render(request, "blog/index.html", {'form': form})
 
 
 def display_flux(request):
