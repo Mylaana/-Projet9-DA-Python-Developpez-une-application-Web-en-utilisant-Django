@@ -1,10 +1,10 @@
 from django.shortcuts import render
 from authentication.forms import SignInForm
-from authentication.forms import LogIn
+from authentication.forms import LogInForm
 # Create your views here.
 
 def display_index(request):
-    form = LogIn()
+    form = LogInForm()
     return render(request, "authentication/index.html", {'form': form})
 
 

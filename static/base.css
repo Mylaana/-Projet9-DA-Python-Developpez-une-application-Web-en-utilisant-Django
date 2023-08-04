@@ -11,7 +11,7 @@
   grid-template-columns: 1fr 1fr 1fr;
   height: 3.5em;
   background-color: #d4b89f;
-  /*box-shadow: 0px 1px 3px $global-palette-8;*/
+  box-shadow: 0px 1px 3px #66473a;
 }
 
 .site-icon {
