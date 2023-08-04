@@ -9,27 +9,39 @@
 {% block content %}
 <section class="sign_in">
     <div class="styled-window">
-        <h1>Pas encore inscrit ?
-            <br>Rejoignez-nous
-        </h1>
-        <a href="/sign-in/"><button class="btn">S'inscrire</button></a>
+        <div class="window-container window-container--sign-in">
+            <div class="window-container-box">
+                <h1>Pas encore inscrit ?
+                    <br>Rejoignez-nous !
+                </h1>
+            </div>
+            <div class="window-container-box">
+            </div>
+            <div class="window-container-box">
+                <button onclick="location.href='/sign-in/';" class="btn">S'inscrire</button>
+            </div>
+        </div>
     </div>
 </section>
 <section class="log_in">
     <div class="styled-window">
-        <h1>Connectez-vous</h1>
-        <form action="" method="post" novalidate>
-            <div class=styled-window-internal>
-                {% csrf_token %}
-                {% for field in form %}
-                    <div class="form-field-container">
-                        <div class="form-label"><label>{{field.label}}</label></div>
-                        <div class="form-field"><p>{{field}} </p></div>
-                    </div>
-                {% endfor %}
+        <form class="window-container window-container--log-in" action="" method="post" novalidate>
+            <div class="window-container-box">
+                <h1>Connectez-vous</h1>
             </div>
-            <div class="form-button">
-                <input class=btn type="submit" value="Se connecter">
+            <div class="window-container-box styled-window-internal">
+                <div class="form-field-container">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        <div class="form-field-box">
+                            <div class="form-label"><label>{{field.label}}</label></div>
+                            <div class="form-field"><p>{{field}}</p></div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="window-container-box">
+                <input class="btn" type="submit" value="Se connecter">
             </div>
         </form>
     </div>
