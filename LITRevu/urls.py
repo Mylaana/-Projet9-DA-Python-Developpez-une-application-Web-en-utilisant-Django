@@ -22,11 +22,11 @@ import authentication.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', blog.views.display_index, name="index"),
-    path('index/', blog.views.display_index, name="flux"),
+    path('', authentication.views.display_index, name="index"),
+    path('index/', authentication.views.display_index, name="index"),
     path('flux/', blog.views.display_flux, name="flux"),
     path('posts/', blog.views.display_posts, name="posts"),
     path('abonnements/', blog.views.display_abonnements, name="abonnements"),
     path('sign-in/', authentication.views.display_sign_in, name="sign-in"),
-    path('index/', blog.views.log_out, name="log_out"),
+    path('index/', authentication.views.log_out, name="log_out"),
 ]
