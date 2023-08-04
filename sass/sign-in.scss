@@ -11,7 +11,6 @@ main section{
     text-align: center;
     font-size: x-large;
 }
-
 .form-field-container{
     display: flex;
     justify-content: space-between;
@@ -36,10 +35,13 @@ main section{
     margin-right: $btn-margin;
     margin-left: $btn-margin;
 }
+
 form {
     margin-top: 5%;
-    height: 10em;
-    & > div{
-        height: 25%;
+    height: 15em;
+    & .styled-window-internal {
+        & > div{
+            height: 25%;
+        }
     }
 }

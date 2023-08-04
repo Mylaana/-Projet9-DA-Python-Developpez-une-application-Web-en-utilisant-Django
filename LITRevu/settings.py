@@ -135,6 +135,5 @@ CACHES = {
         'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
     }
 }
-"""
+
 AUTH_USER_MODEL = 'authentication.User'
-"""

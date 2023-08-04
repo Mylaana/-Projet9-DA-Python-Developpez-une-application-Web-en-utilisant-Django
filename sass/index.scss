@@ -19,9 +19,43 @@ section > div{
     margin-right: $section-horizontal-margin;
     margin-left: $section-horizontal-margin;
 }
+.btn-area{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .btn{
-    font-size: medium;
-    $btn-horizontal-padding: 30px;
-    padding-left: $btn-horizontal-padding;
-    padding-right: $btn-horizontal-padding;
+    font-size: large;
+    width: 60%;
+}
+.window-container{
+    display: grid;
+    height: 100%;
+    grid-template-rows: 2fr 4fr 2fr;
+    & > * {
+        margin-TOP: 0;
+        margin-bottom: 0;
+    }
+}
+.window-container-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding:20px;
+}
+.styled-window{
+    padding: 20px;
+    background-color: $global-palette-1;
+}
+.form-field-container{
+    width: 100%;
+    height: 100%;
+}
+.form-field-box{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }

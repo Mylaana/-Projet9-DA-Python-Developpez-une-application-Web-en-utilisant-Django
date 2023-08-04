@@ -13,12 +13,14 @@
         <h1>Inscrivez-vous:</h1>
         <form action="" method="post" novalidate>
             {% csrf_token %}
-            {% for field in form %}
-                <div class="form-field-container">
-                    <div class="form-label"><label>{{field.label}}</label></div>
-                    <div class="form-field"><p>{{field}} </p></div>
-                </div>
-            {% endfor %}
+            <div class=styled-window-internal>
+                {% for field in form %}
+                    <div class="form-field-container">
+                        <div class="form-label"><label>{{field.label}}</label></div>
+                        <div class="form-field"><p>{{field}} </p></div>
+                    </div>
+                {% endfor %}
+            </div>
             <div class="form-button">
                 <input class=btn type="button" onclick="location.href='/index/';" value="Retourner">
                 <input class=btn type="submit" value="S'inscrire">

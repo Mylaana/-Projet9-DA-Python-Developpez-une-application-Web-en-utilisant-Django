@@ -39,9 +39,9 @@ main section {
 
 form {
   margin-top: 5%;
-  height: 10em;
+  height: 15em;
 }
-form > div {
+form .styled-window-internal > div {
   height: 25%;
 }
 

@@ -2,11 +2,8 @@
   text-decoration: none;
   color: #66473a;
   font-family: "Roboto", sans-serif;
-}
-
-body {
-  margin: 0;
   padding: 0;
+  margin: 0;
 }
 
 .navigation-grid {
@@ -14,8 +11,7 @@ body {
   grid-template-columns: 1fr 1fr 1fr;
   height: 3.5em;
   background-color: #d4b89f;
-  border-bottom: 0px transparent solid;
-  box-shadow: 0px 1px 3px #66473a;
+  /*box-shadow: 0px 1px 3px $global-palette-8;*/
 }
 
 .site-icon {
@@ -39,13 +35,21 @@ body {
   grid-template-columns: 2fr 2fr 3fr 3fr;
   padding-right: 5%;
   padding-left: 5%;
-  height: 100%;
+  height: 3.5em;
   text-align: center;
 }
 .navigation-container a {
   font-weight: bold;
 }
-.navigation-container a:hover {
+
+.navigation-box-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  border-bottom: transparent 5px solid;
+}
+.navigation-box-link:hover {
   border-bottom: #a87141 5px solid;
 }
 
@@ -53,12 +57,10 @@ body {
   border: 1px solid #d4b89f;
   border-radius: 10px;
   box-shadow: 0px 3px 15px #66473a;
-  padding: 25px;
 }
 
 .styled-window-internal {
   background-color: #f0e7de;
-  padding: 20px;
   border-radius: 10px;
   border: solid 1px #66473a;
   box-shadow: inset 0px 1px 5px #66473a;
