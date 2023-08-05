@@ -47,15 +47,22 @@ section > div{
     padding: 20px;
     background-color: $global-palette-1;
 }
+.styled-window-internal{
+    margin: 20px;
+}
 .form-field-container{
     width: 100%;
     height: 100%;
 }
 .form-field-box{
     width: 100%;
-    height: 50%;
+    height: 45%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+.log-in-message{
+    color: red;
+    font-size: medium;
 }

@@ -19,13 +19,11 @@
                     <div class="site_icon-container"><img class="site-icon" src="{% static 'site_icon.png' %}" alt="icone site"></div>
                     <div class="navigation-title"><a href="/index/"><p>LITReview</p></a></div>
                     <div class="navigation-container">
-                        {% if not is_logged %}
+                        {% if user.is_authenticated %}
                             <a href="/flux/"><div class="navigation-box-link"><p>Flux</p></div></a>
                             <a href="/posts/"><div class="navigation-box-link"><p>Posts</p></div></a>
                             <a href="/abonnements/"><div class="navigation-box-link"><p>Abonnements</p></div></a>
-                            <a href="/index/"><div class="navigation-box-link"><p>Se déconnecter</p></div></a>
-                        {% else %}
-                            <p>not logged in : {{is_logged}} abc</p>
+                            <a href="{% url 'log-out' %}"><div class="navigation-box-link"><div><p>{{user.username}}</p><p>Se déconnecter</p></div></div></a>
                         {% endif %}
                     </div>
                 </div>

@@ -28,5 +28,5 @@ urlpatterns = [
     path('posts/', blog.views.display_posts, name="posts"),
     path('abonnements/', blog.views.display_abonnements, name="abonnements"),
     path('sign-in/', authentication.views.display_sign_in, name="sign-in"),
-    path('index/', authentication.views.log_out, name="log_out"),
+    path('log-out', authentication.views.log_out, name="log-out"),
 ]

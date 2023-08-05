@@ -3,7 +3,7 @@
 
 {% block title %}<title>LITRevu - Index</title>{% endblock title %}
 {% block styles %}
-<link rel="stylesheet" href="{% static 'blog/index.css' %}" />
+<link rel="stylesheet" href="{% static 'authentication/index.css' %}" />
 {% endblock styles %}
 
 {% block content %}
@@ -38,6 +38,9 @@
                             <div class="form-field"><p>{{field}}</p></div>
                         </div>
                     {% endfor %}
+                    <div>
+                        <p class="log-in-message">{{ message }}</p>
+                    </div>
                 </div>
             </div>
             <div class="window-container-box">
@@ -47,5 +50,3 @@
     </div>
 </section>
 {% endblock content %}
-
-{is_logged=="pouet"}
