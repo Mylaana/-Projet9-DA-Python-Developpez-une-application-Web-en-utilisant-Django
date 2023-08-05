@@ -4,45 +4,46 @@ main {
   width: 100%;
 }
 
-main section {
-  width: 30%;
+main > section {
+  width: 25%;
   margin-top: 5%;
+  height: 40em;
   text-align: center;
   font-size: x-large;
+  border: 1px red solid;
 }
 
-.form-field-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.form-field-container div {
-  width: 45%;
-}
-.form-field-container .form-label {
-  text-align: right;
-}
-.form-field-container .form-field {
-  text-align: left;
-}
-
-.form-button {
+.window-container {
   display: flex;
   align-items: center;
+  flex-direction: column;
   justify-content: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.window-container--button {
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 .btn {
   margin-right: 3%;
   margin-left: 3%;
+  width: 30%;
+  font-size: large;
 }
 
-form {
-  margin-top: 5%;
-  height: 15em;
+main > section {
+  width: 25%;
+  height: 50%;
+  text-align: center;
+  font-size: x-large;
 }
-form .styled-window-internal > div {
-  height: 25%;
+
+.styled-window-internal {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin: 20px;
 }
 
 /*# sourceMappingURL=sign-in.css.map */

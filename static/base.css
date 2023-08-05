@@ -57,6 +57,8 @@
   border: 1px solid #d4b89f;
   border-radius: 10px;
   box-shadow: 0px 3px 15px #66473a;
+  padding: 20px;
+  background-color: #ffffff;
 }
 
 .styled-window-internal {
