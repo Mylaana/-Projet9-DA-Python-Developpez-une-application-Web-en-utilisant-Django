@@ -10,7 +10,6 @@ main > section {
   height: 40em;
   text-align: center;
   font-size: x-large;
-  border: 1px red solid;
 }
 
 .window-container {
@@ -48,6 +47,14 @@ main > section {
 
 .form-help {
   font-size: small;
+}
+
+.form__error ul {
+  list-style: none;
+}
+.form__error li {
+  color: red;
+  font-size: medium;
 }
 
 /*# sourceMappingURL=signup.css.map */

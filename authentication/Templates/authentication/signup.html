@@ -16,9 +16,6 @@
                 <h1>Inscrivez-vous:</h1>
             </div>
             <div class=styled-window-internal>
-                {% if form.errors %}
-                    {{ form.errors }}
-                {% endif %}
                 {% for field in form %}
                     <div class="window-container">
                         <div class="form-label"><label>{{field.label}}</label></div>
@@ -26,6 +23,9 @@
                         <div class="form-help"><p>{{field.help_text.fr}}</p></div>
                     </div>
                 {% endfor %}
+                {% if form.errors %}
+                    <div class="form__error">{{ form.errors }}</div>
+                {% endif %}
             </div>
             <div class="window-container window-container--button">
                 <input class=btn type="button" onclick="location.href='/index/';" value="Retourner">

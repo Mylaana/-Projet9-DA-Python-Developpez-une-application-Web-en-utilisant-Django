@@ -6,5 +6,55 @@
     <link rel="stylesheet" href="{% static 'blog/flux.css' %}" />
 {% endblock styles %}
 {% block content %}
-    <p>page flux</p>
+<section>
+    <div class="top-button-container">
+        <button class="btn">Demander une critique</button>
+        <button class="btn">Créer une critique</button>
+    </div>
+    {% for ticket in ticket_list %}
+        <div class="styled-window">
+            <div class="box-message-grid">
+                <div class=box-message-grid__1--author>
+                    <p>{{ticket.author}}</p>
+                </div>
+                <div class=box-message-grid__1--date>
+                    <p>{{ticket.post_date}}</p>
+                </div>
+                <div class=box-message-grid__2>
+                    <p>{{ticket.title}} - {{ticket.rating}}</p>
+                </div>
+                <div class=box-message-grid__3>
+                    <p><p>{{ticket.comment}}</p></p>
+                </div>                
+                {% if not ticket.is_answer %}
+                <div class="image-container">
+                    <img src="" alt="image">
+                </div>
+                {% endif %}
+            </div>
+            {% if ticket.is_answer %}
+                <div class="styled-window-internal box-message-grid">
+                    <div class=box-message-grid__1>
+                        <p>{{ticket.original_ticket.title}}</p>
+                    </div>
+                    <div class=box-message-grid__2>
+                        <p>{{ticket.original_ticket.author}}</p>
+                    </div>
+                    <div class=box-message-grid__3>
+                        <p>{{ticket.original_ticket.comment}}</p>
+                    </div>
+                    <div class="image-container">
+                        <img src="" alt="image">
+                    </div>
+                </div>
+            {% else %}
+                {% if not ticket.is_answered and ticket.is_open_to_comments %}
+                <div class="button-area">
+                    <button class="btn">Créer une critique</button>
+                </div>
+                {% endif %}
+            {% endif %}
+        </div>
+    {% endfor %}
+</section>
 {% endblock content %}

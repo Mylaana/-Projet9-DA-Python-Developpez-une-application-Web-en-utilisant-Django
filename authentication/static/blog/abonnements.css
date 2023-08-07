@@ -46,9 +46,8 @@ section > div {
   padding: 20px;
 }
 
-.styled-window {
-  padding: 20px;
-  background-color: #ffffff;
+.styled-window-internal {
+  margin: 20px;
 }
 
 .form-field-container {
@@ -58,11 +57,16 @@ section > div {
 
 .form-field-box {
   width: 100%;
-  height: 50%;
+  height: 45%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-/*# sourceMappingURL=index.css.map */
+.log-in-message {
+  color: red;
+  font-size: medium;
+}
+
+/*# sourceMappingURL=abonnements.css.map */
