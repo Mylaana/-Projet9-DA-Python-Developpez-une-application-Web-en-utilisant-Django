@@ -4,6 +4,7 @@ main {
     display: flex;
     justify-content: center;
     width: 100%;
+    margin-bottom: 5em;
 }
 main > section{
     width: 35%;
@@ -47,7 +48,7 @@ main > section{
         grid-column-start: 1;
         grid-column-end: 3;
         padding-top: $text-padding-top;
-        &--author{
+        &--user{
             grid-column-start: 1;
             grid-column-end: 2;
         }

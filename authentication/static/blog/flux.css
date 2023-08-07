@@ -2,6 +2,7 @@ main {
   display: flex;
   justify-content: center;
   width: 100%;
+  margin-bottom: 5em;
 }
 
 main > section {
@@ -51,7 +52,7 @@ main > section {
   grid-column-end: 3;
   padding-top: 0.5em;
 }
-.box-message-grid__1--author {
+.box-message-grid__1--user {
   grid-column-start: 1;
   grid-column-end: 2;
 }

@@ -3,10 +3,10 @@ from django.shortcuts import render
 
 def flux_page(request):
     ticket_list = [
-        {"id": 1, "is_answer": True, "is_answered": False, "is_open_to_comments": False, "title": "titre 1", "author": "auteur 1", "comment": "commentaire 1", "rating": "4/5", "image_link": "", "post_date": "07/08/2023", "original_ticket": {"id": 3, "is_answer": False, "is_answered": True, "is_oppenned": False, "title": "titre 3", "author": "auteur 3", "comment": "commentaire 3", "original_ticket": ""}},
-        {"id": 2, "is_answer": False, "is_answered": False, "is_open_to_comments": True, "title": "titre 2", "author": "auteur 2", "comment": "commentaire 2", "rating": "5/5", "image_link": "", "post_date": "06/08/2023", "original_ticket": ""},
-        {"id": 3, "is_answer": False, "is_answered": True, "is_open_to_comments": False, "title": "titre 3", "author": "auteur 3", "comment": "commentaire 3", "rating": "3/5", "image_link": "", "post_date": "05/08/2023", "original_ticket": ""},
-        {"id": 4, "is_answer": False, "is_answered": False, "is_open_to_comments": False, "title": "titre 4", "author": "auteur 4", "comment": "commentaire 4", "rating": "1/5", "image_link": "", "post_date": "04/08/2023", "original_ticket": ""},
+        {"is_answered": False, "is_open_to_review": False, "title": "titre 1", "user": "auteur 1", "description": "commentaire 1", "image_link": "", "time_created": "07/08/2023", "review": {"ticket": "", "is_answered": True, "headline": "r titre 3", "body": "r body 3", "user": "r user 3", "rating": "r 4/5", "time_created": "r 07/08/2023"}},
+        {"is_answered": False, "is_open_to_review": True, "title": "titre 2", "user": "auteur 2", "description": "commentaire 2", "image_link": "", "time_created": "06/08/2023", "original_ticket": None},
+        {"is_answered": True, "is_open_to_review": False, "title": "titre 3", "user": "auteur 3", "description": "commentaire 3", "image_link": "", "time_created": "05/08/2023", "original_ticket": None},
+        {"is_answered": False, "is_open_to_review": False, "title": "titre 4", "user": "auteur 4", "description": "commentaire 4", "image_link": "", "time_created": "04/08/2023", "original_ticket": None},
     ]
     return render(request, "blog/flux.html", context={"ticket_list": ticket_list})
 
