@@ -1,13 +1,13 @@
 from django.shortcuts import render
 
 
-def display_flux(request):
+def flux_page(request):
     return render(request, "blog/flux.html")
 
 
-def display_posts(request):
+def posts_page(request):
     return render(request, "blog/posts.html")
 
 
-def display_abonnements(request):
+def abonnements_page(request):
     return render(request, "blog/abonnements.html")

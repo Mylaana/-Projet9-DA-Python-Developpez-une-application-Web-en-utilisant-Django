@@ -3,7 +3,7 @@
 
 {% block title %}<title>LITRevu - Index</title>{% endblock title %}
 {% block styles %}
-<link rel="stylesheet" href="{% static 'authentication/sign-in.css' %}" />
+<link rel="stylesheet" href="{% static 'authentication/signup.css' %}" />
 {% endblock styles %}
 
 
@@ -16,10 +16,14 @@
                 <h1>Inscrivez-vous:</h1>
             </div>
             <div class=styled-window-internal>
+                {% if form.errors %}
+                    {{ form.errors }}
+                {% endif %}
                 {% for field in form %}
                     <div class="window-container">
                         <div class="form-label"><label>{{field.label}}</label></div>
                         <div class="form-field"><p>{{field}} </p></div>
+                        <div class="form-help"><p>{{field.help_text.fr}}</p></div>
                     </div>
                 {% endfor %}
             </div>

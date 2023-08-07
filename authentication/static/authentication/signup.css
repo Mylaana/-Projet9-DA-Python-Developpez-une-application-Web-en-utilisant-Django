@@ -46,4 +46,8 @@ main > section {
   margin: 20px;
 }
 
-/*# sourceMappingURL=sign-in.css.map */
+.form-help {
+  font-size: small;
+}
+
+/*# sourceMappingURL=signup.css.map */
