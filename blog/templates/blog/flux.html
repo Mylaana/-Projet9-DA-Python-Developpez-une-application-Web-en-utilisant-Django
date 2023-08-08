@@ -11,29 +11,29 @@
         <button class="btn">Demander une critique</button>
         <button class="btn">Créer une critique</button>
     </div>
-    {% for ticket in ticket_list %}
+    {% for item in tickets_with_reviews %}
         <div class="styled-window">
-            {% if ticket.review is None %}
+            {% if item.review is None %}
                 <div class="box-message-grid">
                     <div class=box-message-grid__1--user>
-                        <p>{{ticket.user}}</p>
+                        <p>{{item.ticket.user}}</p>
                     </div>
                     <div class=box-message-grid__1--date>
-                        <p>{{ticket.time_created}}</p>
+                        <p>{{item.ticket.time_created}}</p>
                     </div>
                     <div class=box-message-grid__2>
-                        <p>{{ticket.title}} - {{ticket.rating}}</p>
+                        <p>{{item.ticket.title}}</p>
                     </div>
                     <div class=box-message-grid__3>
-                        <p><p>{{ticket.description}}</p></p>
+                        <p><p>{{item.ticket.description}}</p></p>
                     </div>                
-                    {% if not ticket.is_answer %}
+                    {% if not item.ticket.is_answer %}
                     <div class="image-container">
                         <img src="" alt="image">
                     </div>
                     {% endif %}
                 </div>
-                {% if ticket.is_open_to_review %}
+                {% if item.ticket.is_open_to_review %}
                 <div class="button-area">
                     <button class="btn">Créer une critique</button>
                 </div>
@@ -41,30 +41,30 @@
             {% else %}
                 <div class="box-message-grid">
                     <div class=box-message-grid__1--user>
-                        <p>{{ticket.review.user}}</p>
+                        <p>{{item.review.user}}</p>
                     </div>
                     <div class=box-message-grid__1--date>
-                        <p>{{ticket.review.time_created}}</p>
+                        <p>{{item.review.time_created}}</p>
                     </div>
                     <div class=box-message-grid__2>
-                        <p>{{ticket.review.headline}} - {{ticket.review.rating}}</p>
+                        <p>{{item.review.headline}} - {{item.review.rating}}/5</p>
                     </div>
                     <div class=box-message-grid__3>
-                        <p>{{ticket.review.body}}</p>
+                        <p>{{item.review.body}}</p>
                     </div>
                 </div>
                 <div class="styled-window-internal box-message-grid">
                     <div class=box-message-grid__1--user>
-                        <p>{{ticket.user}}</p>
+                        <p>{{item.ticket.user}}</p>
                     </div>
                     <div class=box-message-grid__1--date>
-                        <p>{{ticket.time_created}}</p>
+                        <p>{{item.ticket.time_created}}</p>
                     </div>
                     <div class=box-message-grid__2>
-                        <p>{{ticket.title}}</p>
+                        <p>{{item.ticket.title}}</p>
                     </div>
                     <div class=box-message-grid__3>
-                        <p>{{ticket.description}}</p>
+                        <p>{{item.ticket.description}}</p>
                     </div>
                     <div class="image-container">
                         <img src="" alt="image">
