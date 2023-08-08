@@ -47,4 +47,6 @@ def posts_page(request):
 
 
 def abonnements_page(request):
-    return render(request, "blog/abonnements.html")
+    context = {"followed": [1, 2, 3],
+               "followers": ["fan1", "fan2"]}
+    return render(request, "blog/abonnements.html", context=context)

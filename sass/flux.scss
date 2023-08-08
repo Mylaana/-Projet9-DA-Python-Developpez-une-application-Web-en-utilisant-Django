@@ -71,7 +71,7 @@ main > section{
         grid-row-end: 4;
         grid-column-start: 1;
         grid-column-end: 3;
-        font-size: 0.85em;
+        font-size: $text-small;
         padding-top: $text-padding-top;
     }
 }

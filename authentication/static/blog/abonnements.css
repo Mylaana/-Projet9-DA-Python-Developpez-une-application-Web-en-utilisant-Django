@@ -2,71 +2,66 @@ main {
   display: flex;
   justify-content: center;
   width: 100%;
-  margin-top: 5%;
+  margin-top: 4em;
+  margin-bottom: 4em;
 }
 
 main > section {
-  width: 25%;
+  width: 30%;
   height: 50%;
   text-align: center;
   font-size: x-large;
 }
 
-section > div {
-  height: 20em;
-  margin-right: 7%;
-  margin-left: 7%;
-}
-
-.btn-area {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+h1 {
+  margin-bottom: 0.5em;
 }
 
 .btn {
-  font-size: large;
-  width: 60%;
-}
-
-.window-container {
-  display: grid;
-  height: 100%;
-  grid-template-rows: 2fr 4fr 2fr;
-}
-.window-container > * {
-  margin-TOP: 0;
-  margin-bottom: 0;
-}
-
-.window-container-box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-}
-
-.styled-window-internal {
-  margin: 20px;
-}
-
-.form-field-container {
-  width: 100%;
-  height: 100%;
-}
-
-.form-field-box {
-  width: 100%;
-  height: 45%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.log-in-message {
-  color: red;
   font-size: medium;
+  width: 100%;
+}
+
+.styled-window {
+  margin-top: 1.5em;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+}
+.styled-window > p {
+  text-align: left;
+  font-size: 0.85em;
+}
+
+.window-container__box {
+  justify-content: space-between;
+  border: 1px red solid;
+  display: flex;
+  flex-direction: row;
+  font-size: 0.85em;
+  align-items: center;
+}
+.window-container__box .button-area {
+  border: 1px green solid;
+  padding: 0;
+  margin: 0;
+}
+.window-container__box .button-area .btn--small {
+  font-size: 0.85em;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+.window-container--follow-new {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  width: 100%;
+  border: 1px blue solid;
+}
+.window-container--follow-new input {
+  width: 90%;
+  height: 60%;
+  font-size: large;
 }
 
 /*# sourceMappingURL=abonnements.css.map */

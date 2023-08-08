@@ -4,61 +4,65 @@ main {
     display: flex;
     justify-content: center;
     width: 100%;
-    margin-top: 5%;
+    margin-top: 4em;
+    margin-bottom: 4em;
 }
 main > section{
-    width: 25%;
+    width: 30%;
     height: 50%;
     text-align: center;
     font-size: x-large;
 }
-section > div{
-    $section-horizontal-margin: 7%;
-
-    height: 20em; 
-    margin-right: $section-horizontal-margin;
-    margin-left: $section-horizontal-margin;
-}
-.btn-area{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+h1{
+    margin-bottom: 
+    0.5em;
 }
 .btn{
-    font-size: large;
-    width: 60%;
+    font-size: medium;
+    width: 100%;
 }
-.window-container{
-    display: grid;
-    height: 100%;
-    grid-template-rows: 2fr 4fr 2fr;
-    & > * {
-        margin-TOP: 0;
-        margin-bottom: 0;
+.styled-window{
+    $vertical-margin: 1.5em;
+    $horizontal-padding: 1.5em;
+    margin-top: $vertical-margin;
+    padding-left: $horizontal-padding;
+    padding-right: $horizontal-padding;
+    > p {
+        text-align: left;
+        font-size: $text-small;
     }
 }
-.window-container-box{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding:20px;
-}
-.styled-window-internal{
-    margin: 20px;
-}
-.form-field-container{
-    width: 100%;
-    height: 100%;
-}
-.form-field-box{
-    width: 100%;
-    height: 45%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-.log-in-message{
-    color: red;
-    font-size: medium;
+.window-container{
+    &__box{
+        justify-content: space-between;
+        border: 1px red solid;
+        display: flex;
+        flex-direction: row;
+        font-size: $text-small;
+        align-items: center;
+        .button-area{
+            border: 1px green solid;
+            padding: 0;
+            margin: 0;
+            .btn--small{
+                font-size: $text-small;
+                padding: 0;
+                margin: 0;
+                width: 100%;
+                height: 100%;
+            }
+            
+        }
+    }
+    &--follow-new{
+        display: grid;
+        grid-template-columns: 4fr 1fr;
+        width: 100%;
+        border: 1px blue solid;
+        input{
+            width: 90%;
+            height: 60%;
+            font-size: large;
+        }
+    }
 }
