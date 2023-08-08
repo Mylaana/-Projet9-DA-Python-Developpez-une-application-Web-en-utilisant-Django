@@ -96,17 +96,11 @@ def blog_and_photo_upload(request):
     ticket_form = forms.TicketForm()
     # photo_form = forms.PhotoForm()
     if request.method == 'POST':
-        ticket_form = forms.TicketForm(request.POST)
+        ticket_form = forms.TicketForm(request.POST, request.FILES)
         # photo_form = forms.PhotoForm(request.POST, request.FILES)
         if any([ticket_form.is_valid()]):
-            """
-            photo = photo_form.save(commit=False)
-            photo.uploader = request.user
-            photo.save()
-            """
             ticket = ticket_form.save(commit=False)
             ticket.user = request.user
-            # blog.photo = photo
             ticket.save()
             return redirect('flux')
 
