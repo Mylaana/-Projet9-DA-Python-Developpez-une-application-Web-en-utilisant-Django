@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "sass": "sass --watch ./sass/base.scss:./static/base.css ./sass/signup.scss:./authentication/static/authentication/signup.css ./sass/index.scss:./authentication/static/authentication/index.css ./sass/flux.scss:./authentication/static/blog/flux.css ./sass/abonnements.scss:./authentication/static/blog/abonnements.css ./sass/posts.scss:./authentication/static/blog/posts.css"
+    "sass": "sass --watch ./sass/base.scss:./static/base.css ./sass/signup.scss:./authentication/static/authentication/signup.css ./sass/index.scss:./authentication/static/authentication/index.css ./sass/flux.scss:./authentication/static/blog/flux.css ./sass/abonnements.scss:./authentication/static/blog/abonnements.css ./sass/posts.scss:./authentication/static/blog/posts.css ./sass/create-ticket.scss:./authentication/static/blog/create-ticket.css"
   },
   "author": "alexandre",
   "license": "ISC"

@@ -24,6 +24,13 @@ main > section{
     $vertical-padding: 10px;
     padding-top: $vertical-padding;
     padding-bottom: $vertical-padding;
+    & > div{
+        width: 70%;
+    }
+    input{
+        width: 100%;
+        text-align: center;
+    }
 }
 .btn{
     $btn-margin : 3%;

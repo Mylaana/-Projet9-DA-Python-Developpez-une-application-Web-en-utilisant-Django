@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}<title>LITRevu - Posts</title>{% endblock title %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'blog/create-ticket.css' %}" />
+{% endblock styles %}
+{% block content %}
+<section>
+    <div class="styled-window">
+        <div class="window-container">
+            <div class="window-container-box">
+                <h2>Écrire un billet</h2>
+            </div>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% for field in ticket_form %}
+                <div class="window-container__box">
+                    <div class="form-label"><label>{{field.label}}</label></div>
+                    <div class="form-field"><p>{{field}} </p></div>
+                </div>
+                {% endfor %}
+                {% if ticket_form.errors %}
+                <div class="window-container__box"></div>
+                    <div class="form__error">{{ ticket_form.errors }}</div>
+                </div>
+                {% endif %}
+                <div class="button-area">
+                    <button class="btn" type="submit" >Publier</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock content %}

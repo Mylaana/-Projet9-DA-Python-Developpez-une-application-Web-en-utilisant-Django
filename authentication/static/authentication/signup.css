@@ -24,6 +24,13 @@ main > section {
   flex-direction: row;
   justify-content: space-around;
 }
+.window-container > div {
+  width: 70%;
+}
+.window-container input {
+  width: 100%;
+  text-align: center;
+}
 
 .btn {
   margin-right: 3%;

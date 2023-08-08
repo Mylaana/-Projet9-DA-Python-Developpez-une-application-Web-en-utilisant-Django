@@ -23,7 +23,7 @@ def index_page(request):
             if user is not None:
                 login(request, user)
                 url = "blog/flux.html"
-                message = "Bonjour vous etes connectés :)"
+                return redirect(settings.LOGIN_REDIRECT_URL)
             else:
                 message = "Identifiants invalides"
         else:

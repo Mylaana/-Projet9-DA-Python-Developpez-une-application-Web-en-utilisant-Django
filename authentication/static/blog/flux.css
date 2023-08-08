@@ -1,15 +1,5 @@
 main {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  margin-bottom: 5em;
-}
-
-main > section {
-  width: 35%;
-  height: 50%;
-  text-align: center;
-  font-size: x-large;
+  margin-top: 0em;
 }
 
 .top-button-container {

@@ -1,8 +1,10 @@
 import copy
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from blog.models import UserFollows, Review, Ticket
+from django.contrib.auth.decorators import login_required
+from . import forms
 
-
+@login_required
 def flux_page(request):
     """
     getting all tickets and their related reviews formatted as such : 
@@ -42,11 +44,39 @@ def flux_page(request):
     return render(request, "blog/flux.html", context=context)
 
 
+@login_required
 def posts_page(request):
     return render(request, "blog/posts.html")
 
 
+@login_required
 def abonnements_page(request):
     context = {"followed": [1, 2, 3],
                "followers": ["fan1", "fan2"]}
     return render(request, "blog/abonnements.html", context=context)
+
+
+@login_required
+def blog_and_photo_upload(request):
+    ticket_form = forms.TicketForm()
+    # photo_form = forms.PhotoForm()
+    if request.method == 'POST':
+        ticket_form = forms.TicketForm(request.POST)
+        # photo_form = forms.PhotoForm(request.POST, request.FILES)
+        if any([ticket_form.is_valid()]):
+            """
+            photo = photo_form.save(commit=False)
+            photo.uploader = request.user
+            photo.save()
+            """
+            ticket = ticket_form.save(commit=False)
+            ticket.author = request.user
+            # blog.photo = photo
+            ticket.save()
+            return redirect('home')
+
+    context = {'ticket_form': ticket_form}
+        
+        # 'photo_form': photo_form,
+        
+    return render(request, 'blog/create-ticket.html', context=context)

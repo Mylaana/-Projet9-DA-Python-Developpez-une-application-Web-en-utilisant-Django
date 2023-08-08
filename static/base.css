@@ -6,6 +6,20 @@
   margin: 0;
 }
 
+main {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 5em;
+  margin-top: 5em;
+}
+main > section {
+  width: 35%;
+  height: 50%;
+  text-align: center;
+  font-size: x-large;
+}
+
 .navigation-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -54,6 +68,10 @@
 }
 
 .styled-window {
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
   border: 1px solid #d4b89f;
   border-radius: 10px;
   box-shadow: 0px 3px 15px #66473a;
@@ -75,6 +93,12 @@
 }
 .btn:hover {
   background-color: #bfb9b4;
+}
+
+input {
+  border: 0;
+  border-bottom: #d4b89f 2px solid;
+  background-color: #faf7f5;
 }
 
 /*# sourceMappingURL=base.css.map */
