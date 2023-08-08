@@ -4,7 +4,7 @@ from . import models
 class TicketForm(forms.ModelForm):
     class Meta:
         model = models.Ticket
-        fields = ['title', 'description']
+        fields = ['title', 'description', 'image']
 
 class PhotoForm(forms.ModelForm):
     pass

@@ -29,7 +29,7 @@
                     </div>                
                     {% if not item.ticket.is_answer %}
                     <div class="image-container">
-                        <img src="" alt="image">
+                        <img src="../media/{{item.ticket.image}}" alt="{{item.ticket.image}}">
                     </div>
                     {% endif %}
                 </div>
@@ -67,7 +67,7 @@
                         <p>{{item.ticket.description}}</p>
                     </div>
                     <div class="image-container">
-                        <img src="" alt="image">
+                        <img src="{{item.ticket.image}}" alt="image">
                     </div>
                 </div>
             {% endif %}

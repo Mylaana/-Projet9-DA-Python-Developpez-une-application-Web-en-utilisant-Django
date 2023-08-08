@@ -141,3 +141,6 @@ AUTHENTICATION_BACKENDS = (
         'django.contrib.auth.backends.ModelBackend',
     )
 LOGIN_REDIRECT_URL = '/flux/'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR.joinpath('blog/media/')

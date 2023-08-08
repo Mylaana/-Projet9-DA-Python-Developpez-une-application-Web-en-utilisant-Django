@@ -1,64 +1,77 @@
 @import "./variables";
 
 main {
+    margin-top: 0em;
+}
+.top-button-container{
     display: flex;
-    justify-content: center;
-    width: 100%;
-    margin-top: 5%;
-}
-main > section{
-    width: 25%;
-    height: 50%;
-    text-align: center;
-    font-size: x-large;
-}
-section > div{
-    $section-horizontal-margin: 7%;
-
-    height: 20em; 
-    margin-right: $section-horizontal-margin;
-    margin-left: $section-horizontal-margin;
-}
-.btn-area{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    justify-content: space-around;
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 .btn{
     font-size: large;
-    width: 60%;
+    width: 35%;
 }
-.window-container{
-    display: grid;
-    height: 100%;
-    grid-template-rows: 2fr 4fr 2fr;
-    & > * {
-        margin-TOP: 0;
-        margin-bottom: 0;
+.styled-window{
+    $vertical-margin: 1.5em;
+    margin-top: $vertical-margin;
+    & .button-area{
+        margin-top: 1em;
+        text-align: right;
+        padding-right: 20px;
     }
-}
-.window-container-box{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding:20px;
 }
 .styled-window-internal{
     margin: 20px;
 }
-.form-field-container{
-    width: 100%;
-    height: 100%;
+.box-message-grid{
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    text-align: left;
+    padding: 20px;
+    font-size: 0.9em;
+    $text-padding-top: 0.5em;
+    &__1{
+        grid-row-start: 1;
+        grid-row-end: 2;
+        grid-column-start: 1;
+        grid-column-end: 3;
+        padding-top: $text-padding-top;
+        &--user{
+            grid-column-start: 1;
+            grid-column-end: 2;
+        }
+        &--date{
+            grid-column-start: 2;
+            grid-column-end: 3;
+            text-align: right;
+            font-size: 0.75em;
+        }
+    }
+    &__2{
+        grid-row-start: 2;
+        grid-row-end: 3;
+        grid-column-start: 1;
+        grid-column-end: 3;
+        padding-top: $text-padding-top;
+    }
+    &__3{
+        grid-row-start: 3;
+        grid-row-end: 4;
+        grid-column-start: 1;
+        grid-column-end: 3;
+        font-size: $text-small;
+        padding-top: $text-padding-top;
+    }
 }
-.form-field-box{
-    width: 100%;
-    height: 45%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-.log-in-message{
-    color: red;
-    font-size: medium;
+.image-container{
+    max-height: 20em;
+    max-width: 100%;
+    padding: 0;
+    & > img{
+        max-width: 100%;
+        max-height: 100%;
+    }
 }

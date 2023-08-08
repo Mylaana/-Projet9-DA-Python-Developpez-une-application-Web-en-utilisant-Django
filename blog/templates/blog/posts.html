@@ -1,10 +1,77 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}<title>LITRevu - Posts</title>{% endblock title %}
+{% block title %}<title>LITRevu - Flux</title>{% endblock title %}
 {% block styles %}
     <link rel="stylesheet" href="{% static 'blog/posts.css' %}" />
 {% endblock styles %}
 {% block content %}
-    <p>page posts</p>
+<section>
+    <div class="top-button-container">
+        <button class="btn">Demander une critique</button>
+        <button class="btn"  onclick="location.href='/create-ticket/';">Créer une critique</button>
+    </div>
+    {% for item in tickets_with_reviews %}
+        <div class="styled-window">
+            {% if item.review is None %}
+                <div class="box-message-grid">
+                    <div class=box-message-grid__1--user>
+                        <p>{{item.ticket.user}}</p>
+                    </div>
+                    <div class=box-message-grid__1--date>
+                        <p>{{item.ticket.time_created}}</p>
+                    </div>
+                    <div class=box-message-grid__2>
+                        <p>{{item.ticket.title}}</p>
+                    </div>
+                    <div class=box-message-grid__3>
+                        <p><p>{{item.ticket.description}}</p></p>
+                    </div>                
+                    {% if not item.ticket.is_answer %}
+                    <div class="image-container">
+                        <img src="../media/{{item.ticket.image}}" alt="{{item.ticket.image}}">
+                    </div>
+                    {% endif %}
+                </div>
+                {% if item.ticket.is_open_to_review %}
+                <div class="button-area">
+                    <button class="btn">Créer une critique</button>
+                </div>
+                {% endif %}
+            {% else %}
+                <div class="box-message-grid">
+                    <div class=box-message-grid__1--user>
+                        <p>{{item.review.user}}</p>
+                    </div>
+                    <div class=box-message-grid__1--date>
+                        <p>{{item.review.time_created}}</p>
+                    </div>
+                    <div class=box-message-grid__2>
+                        <p>{{item.review.headline}} - {{item.review.rating}}/5</p>
+                    </div>
+                    <div class=box-message-grid__3>
+                        <p>{{item.review.body}}</p>
+                    </div>
+                </div>
+                <div class="styled-window-internal box-message-grid">
+                    <div class=box-message-grid__1--user>
+                        <p>{{item.ticket.user}}</p>
+                    </div>
+                    <div class=box-message-grid__1--date>
+                        <p>{{item.ticket.time_created}}</p>
+                    </div>
+                    <div class=box-message-grid__2>
+                        <p>{{item.ticket.title}}</p>
+                    </div>
+                    <div class=box-message-grid__3>
+                        <p>{{item.ticket.description}}</p>
+                    </div>
+                    <div class="image-container">
+                        <img src="{{item.ticket.image}}" alt="image">
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    {% endfor %}
+</section>
 {% endblock content %}

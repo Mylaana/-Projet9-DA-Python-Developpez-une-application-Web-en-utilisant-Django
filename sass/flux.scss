@@ -67,7 +67,11 @@ main {
     }
 }
 .image-container{
-    max-height: 5em;
-    border: red 1px dotted;
-    width: 50%;
+    max-height: 20em;
+    max-width: 100%;
+    padding: 0;
+    & > img{
+        max-width: 100%;
+        max-height: 100%;
+    }
 }
