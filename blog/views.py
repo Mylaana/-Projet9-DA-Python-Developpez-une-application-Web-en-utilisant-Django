@@ -19,7 +19,6 @@ def flux_page(request):
                 if hasattr(review, field.name) and field.name not in exclueded_field:
                     review_info[field.name] = getattr(review, field.name)
             reviews_data.append(review_info)
-        print(ticket)
 
         ticket.combined_date = ticket.time_created
         ticket.is_open_to_review = True
