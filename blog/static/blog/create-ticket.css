@@ -46,14 +46,6 @@ h2 {
   margin-bottom: 1em;
 }
 
-#id_description {
-  width: 100%;
-  border: 2px solid #d4b89f;
-  background-color: #faf7f5;
-  resize: vertical;
-  padding: 5px;
-}
-
 #id_title {
   width: 100%;
   padding: 5px;

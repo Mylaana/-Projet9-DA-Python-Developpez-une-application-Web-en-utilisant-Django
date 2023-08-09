@@ -97,3 +97,13 @@ input{
     border-bottom: $global-palette-4 2px solid;
     background-color: $global-palette-2;
 }
+.invisible{
+    visibility: hidden;
+}
+form textarea {
+    width: 100%;
+    border: 2px solid $global-palette-4;
+    background-color: $global-palette-2;
+    resize: vertical;
+    padding: 5px;
+}

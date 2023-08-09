@@ -143,4 +143,5 @@ AUTHENTICATION_BACKENDS = (
 LOGIN_REDIRECT_URL = '/flux/'
 
 MEDIA_URL = '/media/'
+# MEDIA_URL = BASE_DIR.joinpath('blog/media/')
 MEDIA_ROOT = BASE_DIR.joinpath('blog/media/')

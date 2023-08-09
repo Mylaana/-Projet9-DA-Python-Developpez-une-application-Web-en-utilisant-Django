@@ -8,8 +8,8 @@
 {% block content %}
 <section>
     <div class="top-button-container">
-        <button class="btn">Demander une critique</button>
-        <button class="btn"  onclick="location.href='/create-ticket/';">Créer une critique</button>
+        <button class="btn" onclick="location.href='/create-ticket/';">Demander une critique</button>
+        <button class="btn" onclick="location.href='/create-ticket-review/';">Créer une critique</button>
     </div>
     {% for item in tickets_with_reviews %}
         <div class="styled-window">
@@ -34,9 +34,13 @@
                     {% endif %}
                 </div>
                 {% if item.ticket.is_open_to_review %}
+                <form action="{% url 'create-review' item.ticket.id %}" method="post">
+                {% csrf_token %}
                 <div class="button-area">
-                    <button class="btn">Créer une critique</button>
+                    <input type="hidden" name="ticket_id" value="{{ item.ticket }}">
+                    <button type="submit" class="btn">Créer une critique</button>
                 </div>
+                </form>
                 {% endif %}
             {% else %}
                 <div class="box-message-grid">

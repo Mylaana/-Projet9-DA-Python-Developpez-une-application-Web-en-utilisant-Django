@@ -101,4 +101,16 @@ input {
   background-color: #faf7f5;
 }
 
+.invisible {
+  visibility: hidden;
+}
+
+form textarea {
+  width: 100%;
+  border: 2px solid #d4b89f;
+  background-color: #faf7f5;
+  resize: vertical;
+  padding: 5px;
+}
+
 /*# sourceMappingURL=base.css.map */
