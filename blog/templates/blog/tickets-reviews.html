@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}<title>LITRevu - Posts</title>{% endblock title %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'blog/tickets-reviews.css' %}" />
+{% endblock styles %}
+{% block content %}
+<section>
+    <div class="styled-window">
+        <div class="window-container">
+            <div class="window-container-box">
+                <h2>Écrire un billet</h2>
+            </div>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="window-container__box">
+                    <p class="form__input-field-caption">Titre :</p>
+                    <div class="form__input-field-container">{{ticket_form.title}}</div>
+                </div>
+                <div class="window-container__box">
+                    <p class="form__input-field-caption">Description :</p>
+                    <div class="form__input-field-container">{{ticket_form.description}}</div>
+                </div>
+                <div class="window-container__box">
+                    <p class="form__input-field-caption">Image :</p>
+                    <div class="form__input-field-container">{{ticket_form.image}}</div>
+                </div>
+                {% if ticket_form.errors %}
+                <div class="window-container__box"></div>
+                    <div class="form__error">{{ ticket_form.errors }}</div>
+                </div>
+                {% endif %}
+            </form>
+        </div>
+        <div class="window-container__separator">
+        </div>
+        <div class="window-container">
+            <div class="window-container__box">
+                <h2>Écrire une critique</h2>
+            </div>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="window-container__box">
+                    <p class="form__input-field-caption">Titre :</p>
+                    <div class="form__input-field-container">{{review_form.headline}}</div>
+                </div>
+                <div class="window-container__box">
+                    <p class="form__input-field-caption">Note :</p>
+                    <div class="form__input-field-container">{{review_form.rating}}</div>
+                </div>
+                <div class="window-container__box">
+                    <p class="form__input-field-caption">Commentaire :</p>
+                    <div class="form__input-field-container">{{review_form.body}}</div>
+                </div>
+                {% if review_form.errors %}
+                <div class="window-container__box"></div>
+                    <div class="form__error">{{ ticket_form.errors }}</div>
+                </div>
+                {% endif %}
+                <div class="button-area">
+                    <button class="btn" type="submit" >Publier</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock content %}

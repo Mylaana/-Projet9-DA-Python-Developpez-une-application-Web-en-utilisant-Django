@@ -137,3 +137,26 @@ def review_page(request, ticket_id):
     context = {"ticket": ticket_info,
                "review_form": form}
     return render(request, "blog/create-review.html", context=context)
+
+
+@login_required
+def tickets_reviews_page(request):
+    ticket_form = forms.TicketForm()
+    review_form = forms.ReviewForm()
+
+    if request.method == 'POST':
+        ticket_form = forms.TicketForm(request.POST, request.FILES)
+        if any([ticket_form.is_valid(), review_form.is_valid()]):
+            ticket = ticket_form.save(commit=False)
+            ticket.user = request.user
+            ticket.save()
+
+            review = review_form.save(commit=False)
+            review.user = request.user
+            review.ticket = ticket
+            review.save()
+            return redirect('flux')
+
+    context = {"ticket_form": ticket_form,
+               "review_form": review_form}        
+    return render(request, "blog/tickets-reviews.html", context=context)

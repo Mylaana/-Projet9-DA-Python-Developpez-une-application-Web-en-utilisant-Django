@@ -33,6 +33,7 @@ urlpatterns = [
     path('log-out', authentication.views.log_out, name="log-out"),
     path('create-ticket/', blog.views.blog_and_photo_upload, name='create-ticket'),
     path('create-review/<int:ticket_id>', blog.views.review_page, name='create-review'),
+    path('tickets-reviews/', blog.views.tickets_reviews_page, name='tickets-reviews'),
 ]
 
 if settings.DEBUG:

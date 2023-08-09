@@ -18,7 +18,6 @@ main {
 
 .styled-window-internal {
   margin: 20px;
-  margin-top: 40px;
 }
 
 .box-message-grid {
@@ -100,6 +99,18 @@ main {
 }
 .form__input-field-container > textarea {
   width: 100%;
+  text-align: center;
 }
 
-/*# sourceMappingURL=create-review.css.map */
+.window-container__separator {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  border-bottom: 1px solid black;
+}
+
+#id_image {
+  border: none;
+  background: transparent;
+}
+
+/*# sourceMappingURL=tickets-reviews.css.map */
