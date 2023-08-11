@@ -74,6 +74,13 @@
                         <img src="../media/{{item.ticket.image}}" alt="image">
                     </div>
                 </div>
+                <form action="" method="POST">
+                    {%csrf_token%}
+                    <div class="button-area">
+                        <button input="submit" class="btn">Modifier la critique</button>
+                        <button input="submit"  name="ticket_id" value="{{ item.ticket }}" class="btn">Supprimer la critique</button>
+                    </div>
+                </form>
             {% endif %}
         </div>
     {% endfor %}

@@ -13,7 +13,14 @@ def flux_page(request):
     [{ticket: {ticket.values,..},review: {review.values,..}}]
     """
     tickets_with_reviews = []
-    for ticket in Ticket.objects.all():
+
+    # generates the user list to display
+    user_list_filter = [request.user]
+    for user_query in UserFollows.objects.filter(user=request.user):
+        user_list_filter.append(user_query.followed_user)
+
+    # displays all tickets and/or reviews posted by request.user or followed users
+    for ticket in Ticket.objects.filter(user__in=user_list_filter):
         reviews_data = []
         for review in Review.objects.filter(ticket=ticket):
             review_info = {}
@@ -144,7 +151,7 @@ def abonnements_page(request):
 
 
 @login_required
-def blog_and_photo_upload(request):
+def ticket_page(request):
     ticket_form = forms.TicketForm()
 
     if request.method == 'POST':
@@ -158,6 +165,14 @@ def blog_and_photo_upload(request):
     context = {'ticket_form': ticket_form}        
     return render(request, 'blog/create-ticket.html', context=context)
 
+@login_required
+def ticket_delete_page(request, ticket_id):
+    ticket_form = forms.TicketForm()
+
+    if request.method == 'POST':
+        print(request.user)
+ 
+    return redirect(request, 'flux')
 
 @login_required
 def review_page(request, ticket_id):
