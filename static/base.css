@@ -126,4 +126,9 @@ form textarea {
   font-size: medium;
 }
 
+.button-area {
+  display: flex;
+  justify-content: space-between;
+}
+
 /*# sourceMappingURL=base.css.map */

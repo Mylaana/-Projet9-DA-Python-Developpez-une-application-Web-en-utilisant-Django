@@ -9,9 +9,11 @@ main {
     margin-top: 1em;
     margin-bottom: 1em;
 }
-.btn{
-    font-size: large;
-    width: 35%;
+.btn {
+    width: 30%;
+    & > *{
+        font-size: medium;
+    }
 }
 .styled-window{
     $vertical-margin: 1.5em;

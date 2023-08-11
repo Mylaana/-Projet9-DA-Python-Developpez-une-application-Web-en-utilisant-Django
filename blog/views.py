@@ -53,11 +53,32 @@ def flux_page(request):
     # adds the form component for creating a review
 
     if request.method == 'POST':
-        ticket = request.POST.get('ticket_id')
-        return redirect("/create-review/", context=ticket)
+        # extract action to do and ticket id
+        post_value = request.POST.get("post_value")
+        post_id = post_value.split("_")[1]
+        post_action = post_value.split("_")[0]
 
+        # checks the value sent by the post request
+        if post_action == "create-review":
+            return redirect("/create-review/" + post_id)
+
+        if post_action == "delete-review":
+            delete_review = Review.objects.get(ticket=post_id)
+            # only allows to delete own reviews
+            if delete_review.user == request.user:
+                delete_review.delete()
+            return redirect("flux")
+
+        if post_action == "delete-ticket":
+            delete_ticket = Ticket.objects.get(id=post_id)
+            # only allows to delete own ticket
+            if delete_ticket.user == request.user:
+                delete_ticket.delete()
+            return redirect("flux")
+    print(f"user :  {request.user.id}")
     context = {'tickets_with_reviews': tickets_with_reviews,
-               'form': form}
+               'form': form,
+               'user_id': request.user.id}
     return render(request, "blog/flux.html", context=context)
 
 
@@ -108,7 +129,7 @@ def abonnements_page(request):
     followers =  UserFollows.objects.filter(followed_user=request.user)
     display_error = None
     if request.method == 'POST':
-        post_value = request.POST.get("form_name")
+        post_value = request.POST.get("post_value")
 
         # checks the value sent by the post request
         if post_value == "follow":
@@ -165,14 +186,6 @@ def ticket_page(request):
     context = {'ticket_form': ticket_form}        
     return render(request, 'blog/create-ticket.html', context=context)
 
-@login_required
-def ticket_delete_page(request, ticket_id):
-    ticket_form = forms.TicketForm()
-
-    if request.method == 'POST':
-        print(request.user)
- 
-    return redirect(request, 'flux')
 
 @login_required
 def review_page(request, ticket_id):

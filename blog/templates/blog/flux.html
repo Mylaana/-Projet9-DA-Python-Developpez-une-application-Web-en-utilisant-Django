@@ -13,6 +13,8 @@
     </div>
     {% for item in tickets_with_reviews %}
         <div class="styled-window">
+            <form action="" method="post">
+            {%csrf_token%}
             {% if item.review is None %}
                 <div class="box-message-grid">
                     <div class=box-message-grid__1--user>
@@ -33,15 +35,15 @@
                     </div>
                     {% endif %}
                 </div>
-                {% if item.ticket.is_open_to_review %}
-                <form action="{% url 'create-review' item.ticket.id %}" method="post">
-                {% csrf_token %}
                 <div class="button-area">
-                    <input type="hidden" name="ticket_id" value="{{ item.ticket }}">
-                    <button type="submit" class="btn">Créer une critique</button>
+                    {% if user_id == item.ticket.user.id %}
+                    <button type="submit" class="btn" name="post_value" value="update-ticket_{{item.ticket.id}}">Modifier mon ticket</button>
+                    <button type="submit" class="btn" name="post_value" value="delete-ticket_{{item.ticket.id}}">Supprimer mon ticket</button>
+                    {% endif %}
+                    {% if item.ticket.is_open_to_review %}
+                    <button type="submit" class="btn" name="post_value" value="create-review_{{item.ticket.id}}">Créer une critique</button>
+                    {% endif %}
                 </div>
-                </form>
-                {% endif %}
             {% else %}
                 <div class="box-message-grid">
                     <div class=box-message-grid__1--user>
@@ -74,14 +76,14 @@
                         <img src="../media/{{item.ticket.image}}" alt="image">
                     </div>
                 </div>
-                <form action="" method="POST">
-                    {%csrf_token%}
-                    <div class="button-area">
-                        <button input="submit" class="btn">Modifier la critique</button>
-                        <button input="submit"  name="ticket_id" value="{{ item.ticket }}" class="btn">Supprimer la critique</button>
-                    </div>
-                </form>
+                {% if user_id == item.review.user.id %}
+                <div class="button-area">
+                    <button type="submit" class="btn" name="post_value" value="update-review_{{item.ticket.id}}">Modifier la critique</button>
+                    <button type="submit" class="btn" name="post_value" value="delete-review_{{item.ticket.id}}">Supprimer la critique</button>
+                </div>
+                {% endif %}
             {% endif %}
+            </form>
         </div>
     {% endfor %}
 </section>

@@ -10,8 +10,10 @@ main {
 }
 
 .btn {
-  font-size: large;
-  width: 35%;
+  width: 30%;
+}
+.btn > * {
+  font-size: medium;
 }
 
 .styled-window {
