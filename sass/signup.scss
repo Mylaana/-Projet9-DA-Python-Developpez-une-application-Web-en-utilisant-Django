@@ -55,12 +55,3 @@ main > section{
     font-size: small;
     
 }
-.form__error {
-    & ul {
-        list-style: none;
-    }
-    & li {
-        color: red;
-        font-size: medium;
-    }
-}

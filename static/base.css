@@ -113,4 +113,17 @@ form textarea {
   padding: 5px;
 }
 
+.form__error {
+  margin-top: 1em;
+}
+.form__error * {
+  color: red;
+}
+.form__error ul {
+  list-style: none;
+}
+.form__error li {
+  font-size: medium;
+}
+
 /*# sourceMappingURL=base.css.map */
