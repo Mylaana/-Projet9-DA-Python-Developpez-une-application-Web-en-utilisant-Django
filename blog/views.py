@@ -1,7 +1,9 @@
 import copy
 from django.shortcuts import render, redirect
 from blog.models import UserFollows, Review, Ticket
+from authentication.models import User
 from django.contrib.auth.decorators import login_required
+from django.db.utils import IntegrityError
 from . import forms
 
 @login_required
@@ -94,8 +96,50 @@ def posts_page(request):
 
 @login_required
 def abonnements_page(request):
-    context = {"followed": [1, 2, 3],
-               "followers": ["fan1", "fan2"]}
+    follow_form = forms.FollowForm()
+    followed_user = UserFollows.objects.filter(user=request.user)
+    followers =  UserFollows.objects.filter(followed_user=request.user)
+    display_error = None
+    if request.method == 'POST':
+        post_value = request.POST.get("form_name")
+
+        # checks the value sent by the post request
+        if post_value == "follow":
+            # follows new user
+            follow_form = forms.FollowForm(request.POST.copy())
+            follow_form.data["followed_user"] = request.POST.get('user_to_follow')
+
+            # check if user inputs exists
+            try:
+                followed_user_target = User.objects.get(username=request.POST.get('user_to_follow'))
+            except User.DoesNotExist:
+                display_error = "Nom d'utilisateur invalide"
+                context = {'follow_form': follow_form,
+                            'followed_user': followed_user,
+                            'followers': followers,
+                            'display_error': display_error}
+                return render(request, "blog/abonnements.html", context=context)
+
+            follow_form.followed_user = followed_user_target
+            if any([follow_form.is_valid()]):
+                try:
+                    follow = follow_form.save(commit=False)
+                    follow.user = request.user
+                    follow.followed_user = followed_user_target
+                    follow.save()
+                except IntegrityError:
+                    display_error = "Vous êtes déjà abonné à cet utilisateur"
+        else:
+            # deletes link with followed_user having 'post_value' username
+            unfollow = UserFollows.objects.get(user=request.user, followed_user=User.objects.get(username=post_value))
+            unfollow.delete()
+    else:
+        follow_form = forms.FollowForm()
+
+    context = {'follow_form': follow_form,
+               'followed_user': followed_user,
+               'followers': followers,
+               'display_error': display_error}
     return render(request, "blog/abonnements.html", context=context)
 
 

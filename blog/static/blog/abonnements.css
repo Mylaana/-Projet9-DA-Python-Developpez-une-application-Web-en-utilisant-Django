@@ -44,4 +44,9 @@ h1 {
   font-size: large;
 }
 
+.window-container {
+  display: flex;
+  flex-direction: column;
+}
+
 /*# sourceMappingURL=abonnements.css.map */

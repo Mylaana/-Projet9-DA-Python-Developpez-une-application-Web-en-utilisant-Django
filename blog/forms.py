@@ -6,9 +6,6 @@ class TicketForm(forms.ModelForm):
         model = models.Ticket
         fields = ['title', 'description', 'image']
 
-class PhotoForm(forms.ModelForm):
-    pass
-
 class FeedForm(forms.ModelForm):
     class Meta:
         model = models.Ticket
@@ -18,3 +15,8 @@ class ReviewForm(forms.ModelForm):
     class Meta:
         model = models.Review
         fields = ['rating', 'headline', 'body']
+
+class FollowForm(forms.ModelForm):
+    class Meta:
+        model = models.UserFollows
+        fields = []
