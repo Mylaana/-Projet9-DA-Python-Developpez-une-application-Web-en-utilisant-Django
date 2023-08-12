@@ -32,7 +32,9 @@ urlpatterns = [
     path('signup/', authentication.views.signup_page, name="signup"),
     path('log-out', authentication.views.log_out, name="log-out"),
     path('create-ticket/', blog.views.ticket_page, name='create-ticket'),
+    path('create-ticket/<int:ticket_id>/', blog.views.ticket_page_update, name='create-ticket'),
     path('create-review/<int:ticket_id>', blog.views.review_page, name='create-review'),
+    path('create-review/<int:ticket_id>/<int:review_id>', blog.views.review_page_update, name='create-review'),
     path('tickets-reviews/', blog.views.tickets_reviews_page, name='tickets-reviews'),
 ]
 

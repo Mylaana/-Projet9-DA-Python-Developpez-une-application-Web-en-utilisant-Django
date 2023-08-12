@@ -55,6 +55,7 @@ def flux_page(request):
     if request.method == 'POST':
         # extract action to do and ticket id
         post_value = request.POST.get("post_value")
+        # post_id is ALWAYS the ticket id
         post_id = post_value.split("_")[1]
         post_action = post_value.split("_")[0]
 
@@ -75,7 +76,14 @@ def flux_page(request):
             if delete_ticket.user == request.user:
                 delete_ticket.delete()
             return redirect("flux")
-    print(f"user :  {request.user.id}")
+
+        if post_action == "update-review":
+            review = Review.objects.get(ticket=Ticket.objects.get(id=post_id))
+            return redirect(f"/create-review/{post_id}/{review.id}")
+
+        if post_action == "update-ticket":
+            return redirect("/create-ticket/" + post_id)
+
     context = {'tickets_with_reviews': tickets_with_reviews,
                'form': form,
                'user_id': request.user.id}
@@ -183,7 +191,23 @@ def ticket_page(request):
             ticket.save()
             return redirect('flux')
 
-    context = {'ticket_form': ticket_form}        
+    context = {'ticket_form': ticket_form}
+    return render(request, 'blog/create-ticket.html', context=context)
+
+
+@login_required
+def ticket_page_update(request, ticket_id):
+    ticket_to_update = Ticket.objects.get(id=ticket_id)
+    ticket_form = forms.TicketForm(instance=ticket_to_update)
+
+    if request.method == 'POST':
+        ticket_form = forms.TicketForm(request.POST, request.FILES, instance=ticket_to_update)
+        if any([ticket_form.is_valid()]):
+            ticket_form.save()
+            return redirect('flux')
+
+    context = {'ticket_form': ticket_form,
+               'ticket_values': ticket_id}
     return render(request, 'blog/create-ticket.html', context=context)
 
 
@@ -204,6 +228,28 @@ def review_page(request, ticket_id):
             review.user = request.user
             review.ticket = ticket
             review.save()
+            return redirect('flux')
+
+    context = {"ticket": ticket_info,
+               "review_form": form}
+    return render(request, "blog/create-review.html", context=context)
+
+
+@login_required
+def review_page_update(request, ticket_id, review_id):
+    ticket = Ticket.objects.filter(id=ticket_id)[0]
+    ticket_info = {}
+    for field in ticket._meta.get_fields():
+        excluded_field = ["id", "ticket", "review"]
+        if hasattr(ticket, field.name) and field.name not in excluded_field:
+            ticket_info[field.name] = getattr(ticket, field.name)
+    review_to_update = Review.objects.get(id=review_id)
+    form = forms.ReviewForm(instance=review_to_update)
+
+    if request.method == 'POST':
+        review_form = forms.ReviewForm(request.POST, instance=review_to_update)
+        if any([review_form.is_valid()]):
+            review_form.save()
             return redirect('flux')
 
     context = {"ticket": ticket_info,
