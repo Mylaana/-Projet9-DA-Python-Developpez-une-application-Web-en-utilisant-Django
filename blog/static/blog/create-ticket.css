@@ -26,7 +26,6 @@ main > section {
 
 .image-container {
   max-height: 5em;
-  border: red 1px dotted;
   width: 50%;
 }
 

@@ -20,10 +20,10 @@
                     <div class="navigation-title"><a href="/index/"><p>LITReview</p></a></div>
                     <div class="navigation-container">
                         {% if user.is_authenticated %}
-                            <a href="/flux/"><div class="navigation-box-link"><p>Flux</p></div></a>
+                            <a href="/feed/"><div class="navigation-box-link"><p>Flux</p></div></a>
                             <a href="/posts/"><div class="navigation-box-link"><p>Posts</p></div></a>
-                            <a href="/abonnements/"><div class="navigation-box-link"><p>Abonnements</p></div></a>
-                            <a href="{% url 'log-out' %}"><div class="navigation-box-link"><div><p>{{user.username}}</p><p>Se déconnecter</p></div></div></a>
+                            <a href="/follower/"><div class="navigation-box-link"><p>Abonnements</p></div></a>
+                            <a href="{% url 'log-out' %}"><div class="navigation-box-link"><div><p class="username">{{user.username}}</p><p>Se déconnecter</p></div></div></a>
                         {% endif %}
                     </div>
                 </div>

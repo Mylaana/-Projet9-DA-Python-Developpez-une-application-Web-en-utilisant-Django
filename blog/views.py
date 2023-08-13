@@ -7,7 +7,7 @@ from django.db.utils import IntegrityError
 from . import forms
 
 @login_required
-def flux_page(request):
+def feed_page(request):
     """
     getting all tickets and their related reviews formatted as such : 
     [{ticket: {ticket.values,..},review: {review.values,..}}]
@@ -68,14 +68,14 @@ def flux_page(request):
             # only allows to delete own reviews
             if delete_review.user == request.user:
                 delete_review.delete()
-            return redirect("flux")
+            return redirect("feed")
 
         if post_action == "delete-ticket":
             delete_ticket = Ticket.objects.get(id=post_id)
             # only allows to delete own ticket
             if delete_ticket.user == request.user:
                 delete_ticket.delete()
-            return redirect("flux")
+            return redirect("feed")
 
         if post_action == "update-review":
             review = Review.objects.get(ticket=Ticket.objects.get(id=post_id))
@@ -87,7 +87,7 @@ def flux_page(request):
     context = {'tickets_with_reviews': tickets_with_reviews,
                'form': form,
                'user_id': request.user.id}
-    return render(request, "blog/flux.html", context=context)
+    return render(request, "blog/feed.html", context=context)
 
 
 @login_required
@@ -97,13 +97,20 @@ def posts_page(request):
     [{ticket: {ticket.values,..},review: {review.values,..}}]
     """
     tickets_with_reviews = []
-    for ticket in Ticket.objects.filter(user=request.user):
+
+    # generates the user list to display
+    user_list_filter = [request.user]
+    for user_query in UserFollows.objects.filter(user=request.user):
+        user_list_filter.append(user_query.followed_user)
+
+    # links reviews data with their ticket
+    for ticket in Ticket.objects.filter(user__in=user_list_filter):
         reviews_data = []
-        for review in Review.objects.filter(ticket=ticket):
+        for review in Review.objects.filter(user=request.user, ticket=ticket):
             review_info = {}
             for field in review._meta.get_fields():
-                exclueded_field = ["id", "ticket"]
-                if hasattr(review, field.name) and field.name not in exclueded_field:
+                excluded_field = ["id", "ticket"]
+                if hasattr(review, field.name) and field.name not in excluded_field:
                     review_info[field.name] = getattr(review, field.name)
             reviews_data.append(review_info)
 
@@ -111,7 +118,7 @@ def posts_page(request):
         ticket.is_open_to_review = True
         review = None
         if reviews_data:
-            # adds the original ticket without the review
+            # adds the original ticket without the review if request.user posted it
             ticket.is_open_to_review = False
             ticket_without_review = copy.copy(ticket)
             tickets_with_reviews.append({'ticket': ticket_without_review, 'review': None})
@@ -121,17 +128,57 @@ def posts_page(request):
             if review["time_created"] > ticket.time_created:
                 ticket.combined_date = review["time_created"]
 
-        tickets_with_reviews.append({'ticket': ticket, 'review': review})
+        if ticket.user != request.user and review is None:
+            continue
+
+        form = copy.copy(forms.FeedForm())
+        tickets_with_reviews.append({'ticket': ticket, 'review': review, 'form':form})
 
     # sorting the list in reverse: most recent first
     tickets_with_reviews.sort(key=lambda d: d["ticket"].combined_date, reverse=True)
 
-    context = {'tickets_with_reviews': tickets_with_reviews}
+    # adds the form component for creating a review
+
+    if request.method == 'POST':
+        # extract action to do and ticket id
+        post_value = request.POST.get("post_value")
+        # post_id is ALWAYS the ticket id
+        post_id = post_value.split("_")[1]
+        post_action = post_value.split("_")[0]
+
+        # checks the value sent by the post request
+        if post_action == "create-review":
+            return redirect("/create-review/" + post_id)
+
+        if post_action == "delete-review":
+            delete_review = Review.objects.get(ticket=post_id)
+            # only allows to delete own reviews
+            if delete_review.user == request.user:
+                delete_review.delete()
+            return redirect("feed")
+
+        if post_action == "delete-ticket":
+            delete_ticket = Ticket.objects.get(id=post_id)
+            # only allows to delete own ticket
+            if delete_ticket.user == request.user:
+                delete_ticket.delete()
+            return redirect("feed")
+
+        if post_action == "update-review":
+            review = Review.objects.get(ticket=Ticket.objects.get(id=post_id))
+            return redirect(f"/create-review/{post_id}/{review.id}")
+
+        if post_action == "update-ticket":
+            return redirect("/create-ticket/" + post_id)
+
+    context = {'tickets_with_reviews': tickets_with_reviews,
+               'form': form,
+               'user_id': request.user.id}
     return render(request, "blog/posts.html", context=context)
 
 
 @login_required
-def abonnements_page(request):
+def follower_page(request):
     follow_form = forms.FollowForm()
     followed_user = UserFollows.objects.filter(user=request.user)
     followers =  UserFollows.objects.filter(followed_user=request.user)
@@ -154,7 +201,7 @@ def abonnements_page(request):
                             'followed_user': followed_user,
                             'followers': followers,
                             'display_error': display_error}
-                return render(request, "blog/abonnements.html", context=context)
+                return render(request, "blog/follower.html", context=context)
 
             follow_form.followed_user = followed_user_target
             if any([follow_form.is_valid()]):
@@ -179,7 +226,7 @@ def abonnements_page(request):
                'followed_user': followed_user,
                'followers': followers,
                'display_error': display_error}
-    return render(request, "blog/abonnements.html", context=context)
+    return render(request, "blog/follower.html", context=context)
 
 
 @login_required
@@ -192,7 +239,7 @@ def ticket_page(request):
             ticket = ticket_form.save(commit=False)
             ticket.user = request.user
             ticket.save()
-            return redirect('flux')
+            return redirect('feed')
 
     context = {'ticket_form': ticket_form}
     return render(request, 'blog/create-ticket.html', context=context)
@@ -207,7 +254,7 @@ def ticket_page_update(request, ticket_id):
         ticket_form = forms.TicketForm(request.POST, request.FILES, instance=ticket_to_update)
         if any([ticket_form.is_valid()]):
             ticket_form.save()
-            return redirect('flux')
+            return redirect('feed')
 
     context = {'ticket_form': ticket_form,
                'ticket_values': ticket_id}
@@ -231,7 +278,7 @@ def review_page(request, ticket_id):
             review.user = request.user
             review.ticket = ticket
             review.save()
-            return redirect('flux')
+            return redirect('feed')
 
     context = {"ticket": ticket_info,
                "review_form": form}
@@ -253,7 +300,7 @@ def review_page_update(request, ticket_id, review_id):
         review_form = forms.ReviewForm(request.POST, instance=review_to_update)
         if any([review_form.is_valid()]):
             review_form.save()
-            return redirect('flux')
+            return redirect('feed')
 
     context = {"ticket": ticket_info,
                "review_form": form}
@@ -277,7 +324,7 @@ def tickets_reviews_page(request):
             review.user = request.user
             review.ticket = ticket
             review.save()
-            return redirect('flux')
+            return redirect('feed')
 
     context = {"ticket_form": ticket_form,
                "review_form": review_form}

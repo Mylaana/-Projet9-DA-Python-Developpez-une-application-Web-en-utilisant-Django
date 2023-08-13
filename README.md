@@ -2,5 +2,3 @@
 
 finaliser et homogénéiser CSS
 veille tech
-page posts
-renaming complet pages

@@ -25,7 +25,6 @@ main {
 }
 .image-container{
     max-height: 5em;
-    border: red 1px dotted;
     width: 50%;
 }
 .window-container{
@@ -35,7 +34,6 @@ main {
         margin-top: 1em;
         & > *{
             width: 100%;
-
         }
     }
 }
