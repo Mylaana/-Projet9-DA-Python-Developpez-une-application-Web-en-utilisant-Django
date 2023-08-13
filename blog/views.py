@@ -158,13 +158,16 @@ def abonnements_page(request):
 
             follow_form.followed_user = followed_user_target
             if any([follow_form.is_valid()]):
-                try:
-                    follow = follow_form.save(commit=False)
-                    follow.user = request.user
-                    follow.followed_user = followed_user_target
-                    follow.save()
-                except IntegrityError:
-                    display_error = "Vous êtes déjà abonné à cet utilisateur"
+                if followed_user_target == request.user:
+                    display_error = "Vous ne pouvez pas vous abonner à vous même."
+                else:
+                    try:
+                        follow = follow_form.save(commit=False)
+                        follow.user = request.user
+                        follow.followed_user = followed_user_target
+                        follow.save()
+                    except IntegrityError:
+                        display_error = "Vous êtes déjà abonné à cet utilisateur"
         else:
             # deletes link with followed_user having 'post_value' username
             unfollow = UserFollows.objects.get(user=request.user, followed_user=User.objects.get(username=post_value))
@@ -279,3 +282,4 @@ def tickets_reviews_page(request):
     context = {"ticket_form": ticket_form,
                "review_form": review_form}
     return render(request, "blog/tickets-reviews.html", context=context)
+
