@@ -1,12 +1,14 @@
 @import "./variables";
 
+main{
+    margin-top: $main-vertical-margin-small;
+}
+main > section{
+    width: 30%;
+}
 h1{
     margin-bottom: 
     0.5em;
-}
-.btn{
-    font-size: medium;
-    width: 100%;
 }
 .styled-window{
     > p {
@@ -35,7 +37,27 @@ h1{
                 padding-left: $btn--small-padding;
                 padding-right: $btn--small-padding;
             }
-            
+        }
+
+    }
+    p{
+        text-align: left;
+    }
+    .follow-container{
+        display: flex;
+        flex-direction: row;
+        .window-container__box{
+            justify-content: right;
+            input{
+                width: 100%;
+                height: 50%;
+            }
+            .button-area{
+                width: 60%;
+                .btn{
+                    width: 100%;
+                }
+            }
         }
     }
     &--follow-new{
@@ -46,11 +68,6 @@ h1{
             width: 90%;
             height: 60%;
             font-size: large;
-
         }
     }
-}
-.window-container{
-    display: flex;
-    flex-direction: column;
 }

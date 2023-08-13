@@ -90,9 +90,14 @@ main > section {
   border: 2px solid #d4b89f;
   border-radius: 10px;
   padding: 15px;
+  width: 30%;
+  font-size: medium;
 }
 .btn:hover {
   background-color: #bfb9b4;
+}
+.btn--large {
+  font-size: large;
 }
 
 input {
@@ -133,6 +138,14 @@ form textarea {
 
 .username {
   color: #a87141;
+}
+
+.window-container {
+  width: 100%;
+}
+
+.window-container__box {
+  width: 100%;
 }
 
 /*# sourceMappingURL=base.css.map */

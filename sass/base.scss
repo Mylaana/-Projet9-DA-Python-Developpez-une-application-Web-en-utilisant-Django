@@ -11,8 +11,8 @@ main{
     display: flex;
     justify-content: center;
     width: 100%;
-    margin-bottom: 5em;
-    margin-top: 5em;
+    margin-bottom: $main-vertical-margin-medium;
+    margin-top: $main-vertical-margin-medium;
     & > section{
         width: 35%;
         height: 50%;
@@ -88,8 +88,13 @@ main{
     border: 2px solid $btn-default-color;
     border-radius: 10px;
     padding: 15px;
+    width: 30%;
     &:hover{
         background-color: adjust-color($color: $btn-default-color, $saturation: -30%, $lightness: 0%, $alpha: 1.0);
+    }
+    font-size: medium;
+    &--large {
+        font-size: large;
     }
 }
 input{
@@ -125,4 +130,12 @@ form textarea {
 }
 .username{
     color: $global-palette-6;
+}
+.window-container{
+    width: 100%;
+
+}
+.window-container__box{
+    width: 100%;
+
 }

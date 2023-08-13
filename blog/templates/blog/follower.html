@@ -12,13 +12,15 @@
             {%csrf_token%}
             <div class="window-container">
                 <h1>Suivre des utilisateurs</h1>
-            <p>Entrer le nom de l'utilisateur : </p>
-                <div class="window-container__box">
-                   <input type="text" name="user_to_follow" id="id_user_to_follow">
-                </div>
-                <div class="window-container__box">
-                    <div class="button-area">
-                        <button type="submit" name="post_value" value="follow" class="btn">S'abonner</button>
+                <p>Entrer le nom de l'utilisateur : </p>
+                <div class="follow-container">
+                    <div class="window-container__box">
+                    <input type="text" name="user_to_follow" id="id_user_to_follow">
+                    </div>
+                    <div class="window-container__box">
+                        <div class="button-area">
+                            <button type="submit" name="post_value" value="follow" class="btn">S'abonner</button>
+                        </div>
                     </div>
                 </div>
                 {% if ticket_form.errors or display_error != None %}

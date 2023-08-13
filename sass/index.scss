@@ -4,7 +4,7 @@ main {
     display: flex;
     justify-content: center;
     width: 100%;
-    margin-top: 5%;
+    margin-top: $main-vertical-margin-medium;
 }
 main > section{
     width: 25%;
@@ -24,8 +24,8 @@ section > div{
     align-items: center;
     justify-content: center;
 }
-.btn{
-    font-size: large;
+.btn--large{
+
     width: 60%;
 }
 .window-container{
@@ -37,7 +37,7 @@ section > div{
         margin-bottom: 0;
     }
 }
-.window-container-box{
+.window-container__box{
     display: flex;
     align-items: center;
     justify-content: center;

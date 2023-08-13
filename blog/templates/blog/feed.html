@@ -8,8 +8,8 @@
 {% block content %}
 <section>
     <div class="top-button-container">
-        <button class="btn" onclick="location.href='/create-ticket/';">Demander une critique</button>
-        <button class="btn" onclick="location.href='/tickets-reviews/';">Créer une critique</button>
+        <button class="btn btn--large" onclick="location.href='/create-ticket/';">Demander une critique</button>
+        <button class="btn btn--large" onclick="location.href='/tickets-reviews/';">Créer une critique</button>
     </div>
     {% for item in tickets_with_reviews %}
         <div class="styled-window">

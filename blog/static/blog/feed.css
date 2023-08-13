@@ -8,12 +8,8 @@ main {
   margin-top: 1em;
   margin-bottom: 1em;
 }
-
-.btn {
-  width: 30%;
-}
-.btn > * {
-  font-size: medium;
+.top-button-container .btn {
+  width: 35%;
 }
 
 .styled-window {

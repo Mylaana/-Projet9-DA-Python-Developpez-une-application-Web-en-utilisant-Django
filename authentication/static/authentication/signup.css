@@ -1,15 +1,6 @@
-main {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-
 main > section {
   width: 25%;
-  margin-top: 5%;
   height: 40em;
-  text-align: center;
-  font-size: x-large;
 }
 
 .window-container {
@@ -26,6 +17,7 @@ main > section {
 }
 .window-container > div {
   width: 70%;
+  border: red 1px solid;
 }
 .window-container input {
   width: 100%;
@@ -36,14 +28,6 @@ main > section {
   margin-right: 3%;
   margin-left: 3%;
   width: 30%;
-  font-size: large;
-}
-
-main > section {
-  width: 25%;
-  height: 50%;
-  text-align: center;
-  font-size: x-large;
 }
 
 .styled-window-internal {

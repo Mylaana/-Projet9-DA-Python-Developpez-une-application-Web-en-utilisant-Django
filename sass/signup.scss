@@ -1,16 +1,8 @@
 @import "./variables";
 
-main {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
 main > section{
     width: 25%;
-    margin-top: 5%;
     height: 40em;
-    text-align: center;
-    font-size: x-large;
 }
 .window-container{
     display: flex;
@@ -26,6 +18,7 @@ main > section{
     padding-bottom: $vertical-padding;
     & > div{
         width: 70%;
+        border: red 1px solid;
     }
     input{
         width: 100%;
@@ -37,13 +30,6 @@ main > section{
     margin-right: $btn-margin;
     margin-left: $btn-margin;
     width: 30%;
-    font-size: large;
-}
-main > section{
-    width: 25%;
-    height: 50%;
-    text-align: center;
-    font-size: x-large;
 }
 .styled-window-internal{
     $blank-size: 20px;
@@ -53,5 +39,4 @@ main > section{
 }
 .form-help{
     font-size: small;
-    
 }

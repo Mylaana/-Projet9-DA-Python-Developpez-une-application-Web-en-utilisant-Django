@@ -2,3 +2,5 @@
 
 finaliser et homogénéiser CSS
 veille tech
+note max 5
+"not found media"

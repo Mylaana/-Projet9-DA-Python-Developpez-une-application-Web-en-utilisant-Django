@@ -8,11 +8,8 @@ main {
     justify-content: space-around;
     margin-top: 1em;
     margin-bottom: 1em;
-}
-.btn {
-    width: 30%;
-    & > *{
-        font-size: medium;
+    .btn{
+        width: 35%;
     }
 }
 .styled-window{

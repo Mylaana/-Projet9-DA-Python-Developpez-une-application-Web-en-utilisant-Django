@@ -1,5 +1,5 @@
 main {
-  margin-top: 0em;
+  margin-top: 1em;
 }
 
 .top-button-container {
@@ -7,11 +7,6 @@ main {
   justify-content: space-around;
   margin-top: 1em;
   margin-bottom: 1em;
-}
-
-.btn {
-  font-size: large;
-  width: 35%;
 }
 
 .styled-window {
