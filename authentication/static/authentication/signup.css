@@ -1,43 +1,35 @@
 main > section {
   width: 25%;
-  height: 40em;
 }
 
 .window-container {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  display: grid;
+  grid-template-rows: 3fr 10fr 3fr;
+  height: 100%;
 }
 .window-container--button {
   flex-direction: row;
   justify-content: space-around;
-}
-.window-container > div {
-  width: 70%;
-  border: red 1px solid;
 }
 .window-container input {
   width: 100%;
   text-align: center;
 }
 
-.btn {
-  margin-right: 3%;
-  margin-left: 3%;
-  width: 30%;
+.button-area {
+  justify-content: space-around;
 }
 
-.styled-window-internal {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  margin: 20px;
+.btn {
+  width: 30%;
 }
 
 .form-help {
   font-size: small;
+}
+
+.form-field-container {
+  justify-content: space-evenly;
 }
 
 /*# sourceMappingURL=signup.css.map */

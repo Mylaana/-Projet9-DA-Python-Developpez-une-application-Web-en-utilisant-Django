@@ -2,6 +2,10 @@ main {
   margin-top: 0em;
 }
 
+section {
+  width: 50vw;
+}
+
 .top-button-container {
   display: flex;
   justify-content: space-around;
@@ -13,7 +17,7 @@ main {
 }
 
 .styled-window {
-  margin-top: 1.5em;
+  height: auto;
 }
 .styled-window .button-area {
   margin-top: 1em;
@@ -21,49 +25,39 @@ main {
   padding-right: 20px;
 }
 
-.styled-window-internal {
-  margin: 20px;
-}
-
-.box-message-grid {
+.window-message-grid {
   display: grid;
   grid-template-columns: 4fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
   text-align: left;
-  padding: 20px;
-  font-size: 0.9em;
 }
-.box-message-grid__1 {
-  grid-row-start: 1;
-  grid-row-end: 2;
+.window-message-grid__1 {
   grid-column-start: 1;
   grid-column-end: 3;
-  padding-top: 0.5em;
+  padding-top: 0;
 }
-.box-message-grid__1--user {
+.window-message-grid__1--user {
   grid-column-start: 1;
   grid-column-end: 2;
+  font-size: 1.5rem;
 }
-.box-message-grid__1--date {
+.window-message-grid__1--date {
   grid-column-start: 2;
   grid-column-end: 3;
   text-align: right;
-  font-size: 0.75em;
+  font-size: 1rem;
 }
-.box-message-grid__2 {
+.window-message-grid__2 {
   grid-row-start: 2;
   grid-row-end: 3;
   grid-column-start: 1;
   grid-column-end: 3;
-  padding-top: 0.5em;
+  padding-top: 0;
 }
-.box-message-grid__3 {
-  grid-row-start: 3;
-  grid-row-end: 4;
+.window-message-grid__3 {
   grid-column-start: 1;
   grid-column-end: 3;
-  font-size: 0.85em;
-  padding-top: 0.5em;
+  font-size: 0.85rem;
+  padding-top: 0;
 }
 
 .image-container {
