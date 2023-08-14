@@ -1,8 +1,6 @@
 @import "./variables";
 
-main{
-    margin-top: $main-vertical-margin-small;
-}
+
 main > section{
     width: 30%;
 }
@@ -15,6 +13,7 @@ h1{
         text-align: left;
         font-size: $text-small;
     }
+    height: auto;
 }
 .window-container{
     &__box{
@@ -55,7 +54,7 @@ h1{
             .button-area{
                 width: 60%;
                 .btn{
-                    width: 100%;
+                    width: auto;
                 }
             }
         }

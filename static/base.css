@@ -23,8 +23,8 @@ body {
 main {
   display: flex;
   justify-content: center;
+  padding-top: 0rem;
   padding-bottom: 2.5rem;
-  padding-top: 2.5rem;
 }
 
 section {
@@ -119,8 +119,8 @@ input {
   background-color: #faf7f5;
 }
 
-form textarea {
-  width: 100%;
+textarea {
+  width: 20em;
   border: 2px solid #d4b89f;
   background-color: #faf7f5;
   resize: vertical;

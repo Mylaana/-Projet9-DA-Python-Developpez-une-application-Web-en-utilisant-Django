@@ -16,6 +16,13 @@ class ReviewForm(forms.ModelForm):
         model = models.Review
         fields = ['rating', 'headline', 'body']
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['headline'].label = "Titre"
+        self.fields['rating'].label = 'Note'
+        self.fields['body'].label = "Commentaire"
+
+
 class FollowForm(forms.ModelForm):
     class Meta:
         model = models.UserFollows

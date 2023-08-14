@@ -22,8 +22,9 @@ main{
     display: flex;
     justify-content: center;
 
+    padding-top: $main-vertical-padding-small;
     padding-bottom: $main-vertical-padding-medium;
-    padding-top: $main-vertical-padding-medium;
+    
 }
 section{
     width: 35vw;
@@ -109,8 +110,8 @@ input{
     border-bottom: $global-palette-4 2px solid;
     background-color: $global-palette-2;
 }
-form textarea {
-    width: 100%;
+textarea {
+    width: 20em;
     border: 2px solid $global-palette-4;
     background-color: $global-palette-2;
     resize: vertical;

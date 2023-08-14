@@ -1,8 +1,5 @@
 @import "./variables";
 
-main {
-    margin-top: 0em;
-}
 section{
     width: 50vw;
 }
@@ -17,19 +14,26 @@ section{
 }
 .styled-window{
     height: auto;
-    & .button-area{
-        margin-top: 1em;
-        text-align: right;
-        padding-right: 20px;
+    .button-area{
+        display: flex;
+        justify-content: space-evenly;
+        padding-top: 1em;
     }
+}
+.styled-window-internal{
+    padding: 1em;
 }
 .window-message-grid{
     display: grid;
-    grid-template-columns: 4fr 1fr;
-
+    grid-template-columns: 4fr 2fr;
+    width: 100%;
     text-align: left;
     $text-padding-top: 0;
-    &__1{
+    p {
+        font-weight: bold;
+        padding-bottom: 0.5em;
+    }
+    &__header{
         grid-column-start: 1;
         grid-column-end: 3;
         padding-top: $text-padding-top;
@@ -37,6 +41,9 @@ section{
             grid-column-start: 1;
             grid-column-end: 2;
             font-size: $text-xlarge;
+            p {
+                font-size: $text-xlarge;
+            }
         }
         &--date{
             grid-column-start: 2;
@@ -45,26 +52,35 @@ section{
             font-size: $text-medium;
         }
     }
-    &__2{
+    &__title{
         grid-row-start: 2;
         grid-row-end: 3;
         grid-column-start: 1;
         grid-column-end: 3;
         padding-top: $text-padding-top;
+        p {
+            text-decoration: underline;
+            font-size: $text-large;
+        }
     }
-    &__3{
+    &__body{
         grid-column-start: 1;
         grid-column-end: 3;
         font-size: $text-small;
+        padding: 0;
         padding-top: $text-padding-top;
+        text-align: justify;
+        p {
+            font-weight: normal;
+        }
+    }
+    &__image-area{
+        padding: 0;
+        width: 100%;
+        img{
+            max-width: 100%;
+            height: 15em;
+        }
     }
 }
-.image-container{
-    max-height: 20em;
-    max-width: 100%;
-    padding: 0;
-    & > img{
-        max-width: 100%;
-        max-height: 100%;
-    }
-}
+
