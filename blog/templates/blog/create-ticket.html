@@ -1,35 +1,50 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}<title>LITRevu - Posts</title>{% endblock title %}
+{% block title %}<title>LITRevu - Demander une critique</title>{% endblock title %}
 {% block styles %}
     <link rel="stylesheet" href="{% static 'blog/create-ticket.css' %}" />
 {% endblock styles %}
 {% block content %}
-<section>
-    <div class="styled-window">
-        <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            <div class="window-container">
-                <div class="window-container__box">
-                    <h1>Écrire un billet</h1>
-                </div>
-                {% for field in ticket_form %}
-                <div class="window-container__box">
-                    <p class="form__label">{{field.label}}</p>
-                    <div class="form__field">{{field}}</div>
-                </div>
-                {% endfor %}
-                {% if ticket_form.errors %}
-                <div class="window-container__box">
-                    <div class="form__error">{{ ticket_form.errors }}</div>
-                </div>
-                {% endif %}
-                <div class="window-container__box button-area">
-                    <button class="btn" type="submit" >Publier</button>
-                </div>
+<div class="page-tickets">
+    <main>
+        <section>
+            <div class="styled-window">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="window-container">
+                        <div class="window-container__box">
+                            <h1>Écrire un billet</h1>
+                        </div>
+                        {% for field in ticket_form %}
+                        <div class="window-container__box">
+                            <p class="form__label">{{field.label}}</p>
+                            {% if field.label != 'Image' %}
+                                <div class="form__field">{{field}}</div>
+                            {% else %}
+                                <div class="image-container">
+                                {% if loaded_image %}
+                                    <img src="/media/{{loaded_image}}" alt="image">
+                                {% endif %}
+                                </div>
+                                <div class="form__field--modify-image">
+                                    <input type="file" name="image" accept="image/*" id="id_image">
+                                </div>
+                            {% endif %}
+                        </div>
+                        {% endfor %}
+                        {% if ticket_form.errors %}
+                        <div class="window-container__box">
+                            <div class="form__error">{{ ticket_form.errors }}</div>
+                        </div>
+                        {% endif %}
+                        <div class="window-container__box button-area">
+                            <button class="btn" type="submit" >Publier</button>
+                        </div>
+                    </div>
+                </form>
             </div>
-        </form>
-    </div>
-</section>
+        </section>
+    </main>
+</div>
 {% endblock content %}

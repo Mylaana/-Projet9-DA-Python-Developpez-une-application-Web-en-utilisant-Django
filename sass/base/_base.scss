@@ -1,0 +1,39 @@
+* {
+    text-decoration: none;
+    color: $global-palette-8;
+    font-family: 'Roboto', sans-serif;
+    padding: 0;
+    margin: 0;
+    font-size: $text-medium;
+}
+h1{
+    font-size: $text-xlarge;
+}
+html{
+    height: 100%;
+    width: 100%;
+}
+body{
+    height: 100%;
+}
+main{
+    display: flex;
+    justify-content: center;
+
+    padding-top: $main-vertical-padding-small;
+    padding-bottom: $main-vertical-padding-medium;
+    
+}
+section{
+    width: 35vw;
+    text-align: center;
+}
+.site-icon {
+    height: $navigation-bar-height;
+}
+.username{
+    color: $global-palette-6;
+}
+.navigation-blank-space{
+    padding-top: $navigation-bar-height;
+}

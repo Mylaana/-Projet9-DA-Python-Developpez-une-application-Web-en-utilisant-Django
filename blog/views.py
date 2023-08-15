@@ -13,6 +13,7 @@ def feed_page(request):
     [{ticket: {ticket.values,..},review: {review.values,..}}]
     """
     tickets_with_reviews = []
+    form = None
 
     # generates the user list to display
     user_list_filter = [request.user]
@@ -97,6 +98,7 @@ def posts_page(request):
     [{ticket: {ticket.values,..},review: {review.values,..}}]
     """
     tickets_with_reviews = []
+    form = None
 
     # generates the user list to display
     user_list_filter = [request.user]
@@ -155,14 +157,14 @@ def posts_page(request):
             # only allows to delete own reviews
             if delete_review.user == request.user:
                 delete_review.delete()
-            return redirect("feed")
+            return redirect("posts")
 
         if post_action == "delete-ticket":
             delete_ticket = Ticket.objects.get(id=post_id)
             # only allows to delete own ticket
             if delete_ticket.user == request.user:
                 delete_ticket.delete()
-            return redirect("feed")
+            return redirect("posts")
 
         if post_action == "update-review":
             review = Review.objects.get(ticket=Ticket.objects.get(id=post_id))
@@ -171,6 +173,7 @@ def posts_page(request):
         if post_action == "update-ticket":
             return redirect("/create-ticket/" + post_id)
 
+    print(tickets_with_reviews)
     context = {'tickets_with_reviews': tickets_with_reviews,
                'form': form,
                'user_id': request.user.id}
@@ -257,7 +260,8 @@ def ticket_page_update(request, ticket_id):
             return redirect('feed')
 
     context = {'ticket_form': ticket_form,
-               'ticket_values': ticket_id}
+               'ticket_values': ticket_id,
+               'loaded_image': ticket_to_update.image}
     return render(request, 'blog/create-ticket.html', context=context)
 
 

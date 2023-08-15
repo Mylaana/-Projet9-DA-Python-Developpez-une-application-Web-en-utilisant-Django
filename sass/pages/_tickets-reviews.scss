@@ -1,0 +1,38 @@
+.page-tickets-reviews{
+    .window-container{
+        height: auto;
+    }
+    .window-container__box{
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 1em;
+
+    }
+    .styled-window{
+        height: auto;
+        .button-area{
+            display: flex;
+            justify-content: space-evenly;
+        }
+    }
+    .form__input-field-container{
+        text-align: left;
+        width: 100%;
+    }
+    .window-container__separator{
+        $separator-vertical-margin: 1.5em;
+        margin-top: $separator-vertical-margin;
+        margin-bottom: $separator-vertical-margin;
+        border-bottom: 1px solid black;
+    }
+    #id_image{
+        border: none;
+        background: transparent;
+    }
+    #id_rating{
+        width: 8%;
+    }
+    #id_headline{
+        width: 60%;
+    }
+}

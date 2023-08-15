@@ -9,11 +9,11 @@
 
         {% block title %}{% endblock title %}
         <link rel="shortcut icon" type="image/png" href="{% static 'site_icon.png' %}"/>
-        <link rel="stylesheet" href="{% static 'base.css' %}" />
+        <link rel="stylesheet" href="{% static 'main.css' %}" />
         {% block styles %}{% endblock styles %}
     </head>
     <body>
-        <header>
+        <header class="sticky">
             <nav>
                 <div class="navigation-grid">
                     <div class="site_icon-container"><img class="site-icon" src="{% static 'site_icon.png' %}" alt="icone site"></div>
@@ -29,8 +29,7 @@
                 </div>
                 </nav>
         </header>
-        <main>
-            {% block content %}{% endblock content %}
-        </main>
+        <div class="navigation-blank-space"></div>
+        {% block content %}{% endblock content %}
     </body>
 </html>

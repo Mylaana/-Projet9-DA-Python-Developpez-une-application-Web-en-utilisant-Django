@@ -1,64 +1,24 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}<title>LITRevu - Flux</title>{% endblock title %}
+{% block title %}<title>LITRevu - Mes posts</title>{% endblock title %}
 {% block styles %}
     <link rel="stylesheet" href="{% static 'blog/posts.css' %}" />
 {% endblock styles %}
 {% block content %}
-<section>
-    {% for item in tickets_with_reviews %}
-        <div class="styled-window">
-            <form action="" method="post">
-            {%csrf_token%}
-                <div class="window-container">
-                    {% if item.review is None %}
-                        <div class="window-container__box window-message-grid">
-                            <div class=window-message-grid__header--user>
-                                <p>{{item.ticket.user}}</p>
-                            </div>
-                            <div class=window-message-grid__header--date>
-                                <p>{{item.ticket.time_created}}</p>
-                            </div>
-                            <div class=window-message-grid__title>
-                                <p>{{item.ticket.title}}</p>
-                            </div>
-                            <div class=window-message-grid__body>
-                                <p>{{item.ticket.description}}</p>
-                            </div>                
-                            {% if not item.ticket.is_answer %}
-                            <div class="window-message-grid__image-area">
-                                <img src="/media/{{item.ticket.image}}" alt="{{item.ticket.image}}">
-                            </div>
-                            {% endif %}
-                        </div>
-                        <div class="window-container__box button-area">
-                            {% if user_id == item.ticket.user.id %}
-                            <button type="submit" class="btn" name="post_value" value="update-ticket_{{item.ticket.id}}">Modifier mon ticket</button>
-                            <button type="submit" class="btn" name="post_value" value="delete-ticket_{{item.ticket.id}}">Supprimer mon ticket</button>
-                            {% endif %}
-                            {% if item.ticket.is_open_to_review %}
-                            <button type="submit" class="btn" name="post_value" value="create-review_{{item.ticket.id}}">Ajouter une critique</button>
-                            {% endif %}
-                        </div>
-                    {% else %}
-                        <div class="window-container__box window-message-grid">
-                            <div class=window-message-grid__header--user>
-                                <p>{{item.review.user}}</p>
-                            </div>
-                            <div class=window-message-grid__header--date>
-                                <p>{{item.review.time_created}}</p>
-                            </div>
-                            <div class=window-message-grid__title>
-                                <p>{{item.review.headline}} - {{item.review.rating}}/5</p>
-                            </div>
-                            <div class=window-message-grid__body>
-                                <p>{{item.review.body}}</p>
-                            </div>
-                        </div>
-                        <div class="window-container__box">
-                            <div class="styled-window-internal">
-                                <div class="window-message-grid">
+<div class="page-posts">
+    <main>
+        <section>
+            {% if form is None %}
+            <h1><br><br><br><br>Vous n'avez pas de posts pour l'instant <br><br>:(</h1>
+            {% endif %}
+            {% for item in tickets_with_reviews %}
+                <div class="styled-window">
+                    <form action="" method="post">
+                    {%csrf_token%}
+                        <div class="window-container">
+                            {% if item.review is None %}
+                                <div class="window-container__box window-message-grid">
                                     <div class=window-message-grid__header--user>
                                         <p>{{item.ticket.user}}</p>
                                     </div>
@@ -70,24 +30,71 @@
                                     </div>
                                     <div class=window-message-grid__body>
                                         <p>{{item.ticket.description}}</p>
-                                    </div>
+                                    </div>                
+                                    {% if not item.ticket.is_answer %}
                                     <div class="window-message-grid__image-area">
-                                        <img src="/media/{{item.ticket.image}}" alt="image">
+                                        <img src="/media/{{item.ticket.image}}" alt="{{item.ticket.image}}">
+                                    </div>
+                                    {% endif %}
+                                </div>
+                                <div class="window-container__box button-area">
+                                    {% if user_id == item.ticket.user.id %}
+                                    <button type="submit" class="btn" name="post_value" value="update-ticket_{{item.ticket.id}}">Modifier mon ticket</button>
+                                    <button type="submit" class="btn" name="post_value" value="delete-ticket_{{item.ticket.id}}">Supprimer mon ticket</button>
+                                    {% endif %}
+                                    {% if item.ticket.is_open_to_review %}
+                                    <button type="submit" class="btn" name="post_value" value="create-review_{{item.ticket.id}}">Ajouter une critique</button>
+                                    {% endif %}
+                                </div>
+                            {% else %}
+                                <div class="window-container__box window-message-grid">
+                                    <div class=window-message-grid__header--user>
+                                        <p>{{item.review.user}}</p>
+                                    </div>
+                                    <div class=window-message-grid__header--date>
+                                        <p>{{item.review.time_created}}</p>
+                                    </div>
+                                    <div class=window-message-grid__title>
+                                        <p>{{item.review.headline}} - {{item.review.rating}}/5</p>
+                                    </div>
+                                    <div class=window-message-grid__body>
+                                        <p>{{item.review.body}}</p>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        {% if user_id == item.review.user.id %}
-                        <div class="window-container__box button-area">
-                            <button type="submit" class="btn" name="post_value" value="update-review_{{item.ticket.id}}">Modifier la critique</button>
-                            <button type="submit" class="btn" name="post_value" value="delete-review_{{item.ticket.id}}">Supprimer la critique</button>
-                        </div>
-                        {% endif %}
-                    {% endif %}
+                                <div class="window-container__box">
+                                    <div class="styled-window-internal">
+                                        <div class="window-message-grid">
+                                            <div class=window-message-grid__header--user>
+                                                <p>{{item.ticket.user}}</p>
+                                            </div>
+                                            <div class=window-message-grid__header--date>
+                                                <p>{{item.ticket.time_created}}</p>
+                                            </div>
+                                            <div class=window-message-grid__title>
+                                                <p>{{item.ticket.title}}</p>
+                                            </div>
+                                            <div class=window-message-grid__body>
+                                                <p>{{item.ticket.description}}</p>
+                                            </div>
+                                            <div class="window-message-grid__image-area">
+                                                <img src="/media/{{item.ticket.image}}" alt="image">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% if user_id == item.review.user.id %}
+                                <div class="window-container__box button-area">
+                                    <button type="submit" class="btn" name="post_value" value="update-review_{{item.ticket.id}}">Modifier la critique</button>
+                                    <button type="submit" class="btn" name="post_value" value="delete-review_{{item.ticket.id}}">Supprimer la critique</button>
+                                </div>
+                                {% endif %}
+                            {% endif %}
 
+                        </div>
+                    </form>
                 </div>
-            </form>
-        </div>
-    {% endfor %}
-</section>
+            {% endfor %}
+        </section>
+    </main>
+</div>
 {% endblock content %}

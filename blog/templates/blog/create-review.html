@@ -1,62 +1,66 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}<title>LITRevu - Posts</title>{% endblock title %}
+{% block title %}<title>LITRevu - Créer une critique</title>{% endblock title %}
 {% block styles %}
     <link rel="stylesheet" href="{% static 'blog/create-review.css' %}" />
 {% endblock styles %}
 {% block content %}
-<section>
-    <div class="styled-window">
-        <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-            <div class="window-container">
-                <div class="window-container__box">
-                    <h1>Écrire une critique</h1>
-                </div>
-                <div class="window-container__box">
-                    <p class="form__label">{{review_form.headline.label}} :</p>
-                    <div class="form__field">{{review_form.headline}}</div>
-                </div>
-                <div class="window-container__box">
-                    <p class="form__label">{{review_form.rating.label}} :</p>
-                    <div class="form__field">{{review_form.rating}}</div>
-                </div>
-                <div class="window-container__box">
-                    <p class="form__label">{{review_form.body.label}} :</p>
-                    <div class="form__field">{{review_form.body}}</div>
-                </div>
-                {% if ticket_form.errors %}
-                <div class="window-container__box"></div>
-                    <div class="form__error">{{ ticket_form.errors }}</div>
-                </div>
-                {% endif %}
-                <div class="window-container__box">
-                    <div class="styled-window-internal">
-                        <div class="window-message-grid">
-                            <div class=window-message-grid__header--user>
-                                <p>{{ticket.user}}</p>
-                            </div>
-                            <div class=window-message-grid__header--date>
-                                <p>{{ticket.time_created}}</p>
-                            </div>
-                            <div class=window-message-grid__title>
-                                <p>{{ticket.title}}</p>
-                            </div>
-                            <div class=window-message-grid__body>
-                                <p>{{ticket.description}}</p>
-                            </div>
-                            <div class="window-message-grid__image-area">
-                                <img src="/media/{{ticket.image}}" alt="image">
+<div class="page-reviews">
+    <main>        
+        <section>
+            <div class="styled-window">
+                <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                    <div class="window-container">
+                        <div class="window-container__box">
+                            <h1>Écrire une critique</h1>
+                        </div>
+                        <div class="window-container__box">
+                            <p class="form__label">{{review_form.headline.label}} :</p>
+                            <div class="form__field">{{review_form.headline}}</div>
+                        </div>
+                        <div class="window-container__box">
+                            <p class="form__label">{{review_form.rating.label}} :</p>
+                            <div class="form__field">{{review_form.rating}}</div>
+                        </div>
+                        <div class="window-container__box">
+                            <p class="form__label">{{review_form.body.label}} :</p>
+                            <div class="form__field">{{review_form.body}}</div>
+                        </div>
+                        {% if ticket_form.errors %}
+                        <div class="window-container__box"></div>
+                            <div class="form__error">{{ ticket_form.errors }}</div>
+                        </div>
+                        {% endif %}
+                        <div class="window-container__box">
+                            <div class="styled-window-internal">
+                                <div class="window-message-grid">
+                                    <div class=window-message-grid__header--user>
+                                        <p>{{ticket.user}}</p>
+                                    </div>
+                                    <div class=window-message-grid__header--date>
+                                        <p>{{ticket.time_created}}</p>
+                                    </div>
+                                    <div class=window-message-grid__title>
+                                        <p>{{ticket.title}}</p>
+                                    </div>
+                                    <div class=window-message-grid__body>
+                                        <p>{{ticket.description}}</p>
+                                    </div>
+                                    <div class="window-message-grid__image-area">
+                                        <img src="/media/{{ticket.image}}" alt="image">
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                        <div class="window-container__box button-area">
+                            <button class="btn" type="submit" >Publier</button>
+                        </div>
                     </div>
-                </div>
-                <div class="window-container__box button-area">
-                    <button class="btn" type="submit" >Publier</button>
-                </div>
+                </form>
             </div>
-        </form>
-    </div>
-</section>
+        </section>
+    </main>
+</div>
 {% endblock content %}

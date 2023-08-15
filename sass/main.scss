@@ -1,0 +1,19 @@
+@import "./utils/variables";
+
+@import "./base/base";
+
+@import "./components/components_global";
+
+@import "./layouts/layouts_global";
+@import "./layouts/navigation";
+@import "./layouts/form";
+
+@import "./pages/create-review";
+@import "./pages/create-ticket";
+@import "./pages/feed";
+@import "./pages/follower";
+@import "./pages/index";
+@import "./pages/posts";
+@import "./pages/signup";
+@import "./pages/tickets-reviews";
+
