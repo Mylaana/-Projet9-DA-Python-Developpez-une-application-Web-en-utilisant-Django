@@ -117,14 +117,15 @@ input {
   border: 0;
   border-bottom: #d4b89f 2px solid;
   background-color: #faf7f5;
+  padding: 0.2em;
 }
 
 textarea {
-  width: 20em;
+  width: auto;
   border: 2px solid #d4b89f;
   background-color: #faf7f5;
   resize: vertical;
-  padding: 5px;
+  padding: 0.2em;
 }
 
 .form__error * {
@@ -177,6 +178,91 @@ form {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.form__label {
+  display: flex;
+  justify-content: left;
+  width: 100%;
+  text-align: left;
+  font-weight: bold;
+}
+
+.form__field {
+  display: flex;
+  width: 100%;
+  justify-content: left;
+  padding-top: 0.2em;
+  border: green 1px solid;
+}
+.form__field:has(textarea) {
+  justify-content: center;
+}
+.form__field textarea {
+  width: 95%;
+  overflow: hidden;
+}
+
+.window-message-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  text-align: left;
+}
+.window-message-grid p {
+  font-weight: bold;
+  padding-bottom: 0.5em;
+}
+.window-message-grid__header {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  padding-top: 0;
+}
+.window-message-grid__header--user {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  font-size: 1.5rem;
+}
+.window-message-grid__header--user p {
+  font-size: 1.5rem;
+}
+.window-message-grid__header--date {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  text-align: right;
+  font-size: 1rem;
+}
+.window-message-grid__title {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  padding-top: 0;
+}
+.window-message-grid__title p {
+  text-decoration: underline;
+  font-size: 1.15rem;
+}
+.window-message-grid__body {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  font-size: 0.85rem;
+  padding: 0;
+  padding-top: 0;
+  text-align: justify;
+}
+.window-message-grid__body p {
+  font-weight: normal;
+}
+.window-message-grid__image-area {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  padding: 0;
+  width: auto;
+  display: flex;
+  justify-content: center;
+}
+.window-message-grid__image-area img {
+  max-width: 100%;
+  height: 15em;
 }
 
 /*# sourceMappingURL=base.css.map */

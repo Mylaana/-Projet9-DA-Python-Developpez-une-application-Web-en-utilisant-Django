@@ -16,8 +16,8 @@
                 </div>
                 {% for field in ticket_form %}
                 <div class="window-container__box">
-                    <p>{{field.label}}</p>
-                    <div class="form-field">{{field}}</div>
+                    <p class="form__label">{{field.label}}</p>
+                    <div class="form__field">{{field}}</div>
                 </div>
                 {% endfor %}
                 {% if ticket_form.errors %}

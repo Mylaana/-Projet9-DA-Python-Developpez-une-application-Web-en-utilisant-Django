@@ -6,13 +6,6 @@
   display: flex;
   flex-direction: column;
   padding-bottom: 1em;
-  justify-content: left;
-}
-.window-container__box * {
-  width: 100%;
-}
-.window-container__box h1 {
-  text-align: center;
 }
 
 .styled-window {
@@ -23,72 +16,11 @@
   justify-content: space-evenly;
   padding-top: 1em;
 }
-.styled-window * {
-  text-align: left;
-}
 
 .styled-window-internal {
   padding: 1em;
-}
-
-.window-message-grid {
-  display: grid;
-  grid-template-columns: 4fr 2fr;
-  width: 100%;
-  text-align: left;
-}
-.window-message-grid p {
-  font-weight: bold;
-  padding-bottom: 0.5em;
-}
-.window-message-grid__header {
-  grid-column-start: 1;
-  grid-column-end: 3;
-  padding-top: 0;
-}
-.window-message-grid__header--user {
-  grid-column-start: 1;
-  grid-column-end: 2;
-  font-size: 1.5rem;
-}
-.window-message-grid__header--user p {
-  font-size: 1.5rem;
-}
-.window-message-grid__header--date {
-  grid-column-start: 2;
-  grid-column-end: 3;
-  text-align: right;
-  font-size: 1rem;
-}
-.window-message-grid__title {
-  grid-row-start: 2;
-  grid-row-end: 3;
-  grid-column-start: 1;
-  grid-column-end: 3;
-  padding-top: 0;
-}
-.window-message-grid__title p {
-  text-decoration: underline;
-  font-size: 1.15rem;
-}
-.window-message-grid__body {
-  grid-column-start: 1;
-  grid-column-end: 3;
-  font-size: 0.85rem;
-  padding: 0;
-  padding-top: 0;
-  text-align: justify;
-}
-.window-message-grid__body p {
-  font-weight: normal;
-}
-.window-message-grid__image-area {
-  padding: 0;
-  width: 100%;
-}
-.window-message-grid__image-area img {
-  max-width: 100%;
-  height: 15em;
+  width: auto;
+  height: auto;
 }
 
 #id_rating {
@@ -101,6 +33,10 @@
 
 textarea {
   width: 100%;
+}
+
+h1 {
+  text-align: center;
 }
 
 /*# sourceMappingURL=create-review.css.map */

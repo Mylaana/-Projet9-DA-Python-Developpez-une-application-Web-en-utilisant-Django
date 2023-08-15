@@ -15,16 +15,16 @@
                     <h1>Écrire une critique</h1>
                 </div>
                 <div class="window-container__box">
-                    <p class="form__input-field-caption">{{review_form.headline.label}} :</p>
-                    <div class="form__input-field-container">{{review_form.headline}}</div>
+                    <p class="form__label">{{review_form.headline.label}} :</p>
+                    <div class="form__field">{{review_form.headline}}</div>
                 </div>
                 <div class="window-container__box">
-                    <p>{{review_form.rating.label}} :</p>
-                    <div>{{review_form.rating}}</div>
+                    <p class="form__label">{{review_form.rating.label}} :</p>
+                    <div class="form__field">{{review_form.rating}}</div>
                 </div>
                 <div class="window-container__box">
-                    <p class="form__input-field-caption">{{review_form.body.label}} :</p>
-                    <div class="form__input-field-container">{{review_form.body}}</div>
+                    <p class="form__label">{{review_form.body.label}} :</p>
+                    <div class="form__field">{{review_form.body}}</div>
                 </div>
                 {% if ticket_form.errors %}
                 <div class="window-container__box"></div>
