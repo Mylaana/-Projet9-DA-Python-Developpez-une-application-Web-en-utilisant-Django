@@ -49,5 +49,4 @@ def signup_page(request):
 
 def log_out(request):
     logout(request)
-    print("logging out")
     return redirect("index/")
