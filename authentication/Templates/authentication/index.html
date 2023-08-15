@@ -7,46 +7,54 @@
 {% endblock styles %}
 
 {% block content %}
-<section class="sign_in">
-    <div class="styled-window">
-        <div class="window-container window-container--sign-in">
-            <div class="window-container-box">
-                <h1>Pas encore inscrit ?
-                    <br>Rejoignez-nous !
-                </h1>
-            </div>
-            <div class="window-container-box">
-            </div>
-            <div class="window-container-box">
-                <button onclick="location.href='/signup/';" class="btn">S'inscrire</button>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="log_in">
-    <div class="styled-window">
-        <form class="window-container window-container--log-in" action="" method="post" novalidate>
-            <div class="window-container-box">
-                <h1>Connectez-vous</h1>
-            </div>
-            <div class="window-container-box styled-window-internal">
-                <div class="form-field-container">
-                    {% csrf_token %}
-                    {% for field in form %}
-                        <div class="form-field-box">
-                            <div class="form-label"><label>{{field.label}}</label></div>
-                            <div class="form-field"><p>{{field}}</p></div>
-                        </div>
-                    {% endfor %}
-                    <div>
-                        <p class="log-in-message">{{ message }}</p>
+<div class="page-index">
+    <main>
+        <section class="sign_in">
+            <div class="styled-window">
+                <div class="window-container">
+                    <div class="window-container__box">
+                        <h1>Pas encore inscrit ?
+                            <br>Rejoignez-nous !
+                        </h1>
+                    </div>
+                    <div class="window-container__box">
+                    </div>
+                    <div class="window-container__box">
+                        <button onclick="location.href='/signup/';" class="btn btn--large">S'inscrire</button>
                     </div>
                 </div>
             </div>
-            <div class="window-container-box">
-                <input class="btn" type="submit" value="Se connecter">
+        </section>
+        <section class="log_in">
+            <div class="styled-window">
+                <form action="" method="post" novalidate>
+                    {% csrf_token %}
+                    <div class="window-container">
+                        <div class="window-container__box">
+                            <h1>Connectez-vous</h1>
+                        </div>
+                        <div class="window-container__box">
+                            <div class="styled-window-internal">
+                                <div class="form-field-container">
+                                    {% for field in form %}
+                                    <div class="form-field-container__box">
+                                        <div class="form-label"><label>{{field.label}}</label></div>
+                                        <div class="form-field"><p>{{field}}</p></div>
+                                    </div>
+                                    {% endfor %}
+                                    {% if message %}
+                                    <div class="form__error"><p>{{ message }}</p></div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="window-container__box">
+                            <input class="btn btn--large" type="submit" value="Se connecter">
+                        </div>
+                    </div>
+                </form>
             </div>
-        </form>
-    </div>
-</section>
+        </section>
+    </main>
+</div>
 {% endblock content %}

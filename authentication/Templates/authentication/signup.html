@@ -8,30 +8,42 @@
 
 
 {% block content %}
-<section class="sign_in">
-    <div class="styled-window">
-        <form action="" method="post" novalidate>
-            {% csrf_token %}
-            <div class="window-container">
-                <h1>Inscrivez-vous:</h1>
-            </div>
-            <div class=styled-window-internal>
-                {% for field in form %}
+<div class="page-signup">
+    <main>
+        <section>
+            <div class="styled-window">
+                <form action="" method="post" novalidate>
                     <div class="window-container">
-                        <div class="form-label"><label>{{field.label}}</label></div>
-                        <div class="form-field"><p>{{field}} </p></div>
-                        <div class="form-help"><p>{{field.help_text.fr}}</p></div>
+                        {% csrf_token %}
+                        <div class="window-container__box">
+                            <h1>Inscrivez-vous:</h1>
+                        </div>
+                        <div class="window-container__box">
+                            <div class=styled-window-internal>
+                                <div class="form-field-container">
+                                    {% for field in form %}
+                                    <div class="form-field-container__box">
+                                        <div class="form-label"><label>{{field.label}}</label></div>
+                                        <div class="form-field"><p>{{field}} </p></div>
+                                        <div class="form-help"><p>{{field.help_text.fr}}</p></div>
+                                    </div>
+                                    {% endfor %}
+                                    <div class="form-field-container__box">
+                                    {% if form.errors %}
+                                        <div class="form__error">{{ form.errors }}</div>
+                                    {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="window-container__box button-area">
+                            <input class=btn type="button" onclick="location.href='/index/';" value="Retourner">
+                            <input class=btn type="submit" value="S'inscrire">
+                        </div>
                     </div>
-                {% endfor %}
-                {% if form.errors %}
-                    <div class="form__error">{{ form.errors }}</div>
-                {% endif %}
+                </form>
             </div>
-            <div class="window-container window-container--button">
-                <input class=btn type="button" onclick="location.href='/index/';" value="Retourner">
-                <input class=btn type="submit" value="S'inscrire">
-            </div>
-        </form>
-    </div>
-</section>
+        </section>
+    </main>
+</div>
 {% endblock content %}

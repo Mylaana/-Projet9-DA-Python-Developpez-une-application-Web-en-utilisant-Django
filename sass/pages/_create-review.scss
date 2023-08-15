@@ -1,0 +1,35 @@
+.page-reviews{
+    .window-container{
+        height: auto;
+    }
+    .window-container__box{
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 1em;
+
+    }
+    .styled-window{
+        height: auto;
+        .button-area{
+            display: flex;
+            justify-content: space-evenly;
+        }
+    }
+    .styled-window-internal{
+        padding: 1em;
+        width: auto;
+        height: auto;
+    }
+    #id_rating{
+        width: 8%;
+    }
+    #id_headline{
+        width: 60%;
+    }
+    textarea {
+        width: 100%;
+    }
+    h1 {
+        text-align: center;
+    }
+}

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "sass": "sass --watch ./sass/base.scss:./static/base.css ./sass/signup.scss:./authentication/static/authentication/signup.css ./sass/index.scss:./authentication/static/authentication/index.css ./sass/flux.scss:./blog/static/blog/flux.css ./sass/abonnements.scss:./blog/static/blog/abonnements.css ./sass/posts.scss:./blog/static/blog/posts.css ./sass/create-ticket.scss:./blog/static/blog/create-ticket.css ./sass/create-review.scss:./blog/static/blog/create-review.css ./sass/tickets-reviews.scss:./blog/static/blog/tickets-reviews.css"
+    "sass": "sass --watch ./sass/main.scss:./static/main.css"
   },
   "author": "alexandre",
   "license": "ISC"

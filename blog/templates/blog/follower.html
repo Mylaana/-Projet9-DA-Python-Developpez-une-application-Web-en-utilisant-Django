@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}<title>LITRevu - Abonnements</title>{% endblock title %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'blog/follower.css' %}" />
+{% endblock styles %}
+{% block content %}
+<div class="page-follower">
+    <main>
+        <section>
+            <div class="styled-window">
+                <form action="" method="POST">
+                    {%csrf_token%}
+                    <div class="window-container">
+                        <h1>Suivre des utilisateurs</h1>
+                        <p>Entrer le nom de l'utilisateur : </p>
+                        <div class="follow-container">
+                            <div class="window-container__box">
+                            <input type="text" name="user_to_follow" id="id_user_to_follow">
+                            </div>
+                            <div class="window-container__box">
+                                <div class="button-area">
+                                    <button type="submit" name="post_value" value="follow" class="btn">S'abonner</button>
+                                </div>
+                            </div>
+                        </div>
+                        {% if ticket_form.errors or display_error != None %}
+                        <div class="window-container__box">
+                            <div class="form__error">
+                                <br>
+                                <ul>
+                                    {{ display_error}}
+                                    {{ ticket_form.errors }}
+                                </ul>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                </form>
+
+            </div>
+            <div class="styled-window">
+                <h1>Abonnements</h1>
+                <div class="window-container">
+                    <form action="" method="POST">
+                        {%csrf_token%}
+
+                        {% for line in followed_user %}
+                        <div class="window-container__box">
+                            <div>
+                                <p>{{line.followed_user}}</p>
+                            </div>
+                            <div class="button-area">
+                                <button type="submit" name="post_value" value="{{line.followed_user}}" class="btn btn--small">Se désabonner</button>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </form>
+                
+
+                </div>
+            </div>
+            <div class="styled-window">
+                <h1>Abonnés</h1>
+                <div class="window-container">
+                    {% for follower in followers %}
+                    <div class="window-container__box">
+                        <div>
+                            <p>{{follower.user}}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+{% endblock content %}
