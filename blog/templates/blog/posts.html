@@ -33,7 +33,7 @@
                                     </div>                
                                     {% if not item.ticket.is_answer %}
                                     <div class="window-message-grid__image-area">
-                                        <img src="/media/{{item.ticket.image}}" alt="{{item.ticket.image}}">
+                                        <img src="/media/{{item.ticket.image}}" alt="{{item.ticket.image}}" title="{{item.ticket.image}}">
                                     </div>
                                     {% endif %}
                                 </div>
@@ -77,7 +77,7 @@
                                                 <p>{{item.ticket.description}}</p>
                                             </div>
                                             <div class="window-message-grid__image-area">
-                                                <img src="/media/{{item.ticket.image}}" alt="{{item.ticket.image}}">
+                                                <img src="/media/{{item.ticket.image}}" alt="{{item.ticket.image}}" title="{{item.ticket.image}}">
                                             </div>
                                         </div>
                                     </div>
