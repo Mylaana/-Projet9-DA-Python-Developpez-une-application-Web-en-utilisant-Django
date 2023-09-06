@@ -1,0 +1,33 @@
+.page-tickets{
+    section{
+        height: auto;
+    }
+    .styled-window{
+        height: auto;
+    }
+    .window-container{
+        height: auto;
+    }
+    .window-container__box{
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 1em;
+
+    }
+    .btn {
+        text-align: center;
+        width: auto;
+    }
+    h1 {
+        text-align: center;
+    }
+    .image-container{
+        width: auto;
+        display: flex;
+        justify-content: center;
+        img{
+            max-width: 100%;
+            height: 15em;
+        }
+    }
+}

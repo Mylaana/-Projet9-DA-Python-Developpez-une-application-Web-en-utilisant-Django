@@ -1,17 +1,15 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}<title>LITRevu - Mes posts</title>{% endblock title %}
-{% block styles %}
-    <link rel="stylesheet" href="{% static 'blog/posts.css' %}" />
-{% endblock styles %}
+{% block title %}<title>LITRevu - Flux</title>{% endblock title %}
 {% block content %}
-<div class="page-posts">
+<div class="page-feed">
     <main>
         <section>
-            {% if form is None %}
-            <h1><br><br><br><br>Vous n'avez pas de posts pour l'instant <br><br>:(</h1>
-            {% endif %}
+            <div class="top-button-container">
+                <button class="btn btn--large" onclick="location.href='/create-ticket/';">Demander une critique</button>
+                <button class="btn btn--large" onclick="location.href='/tickets-reviews/';">Créer une critique</button>
+            </div>
             {% for item in tickets_with_reviews %}
                 <div class="styled-window">
                     <form action="" method="post">

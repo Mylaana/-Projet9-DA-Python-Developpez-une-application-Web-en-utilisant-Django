@@ -1,0 +1,25 @@
+.page-posts{
+    section{
+        width: 50vw;
+    }
+    .top-button-container{
+        display: flex;
+        justify-content: space-around;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        .btn{
+            width: 35%;
+        }
+    }
+    .styled-window{
+        height: auto;
+        .button-area{
+            display: flex;
+            justify-content: space-evenly;
+            padding-top: 1em;
+        }
+    }
+    .styled-window-internal{
+        padding: 1em;
+    }
+}

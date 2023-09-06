@@ -1,0 +1,42 @@
+.btn{
+    $btn-default-color: $global-palette-4;
+    border: 2px solid $btn-default-color;
+    border-radius: 10px;
+    padding: 15px;
+    width: 30%;
+    &:hover{
+        background-color: adjust-color($color: $btn-default-color, $saturation: -30%, $lightness: 0%, $alpha: 1.0);
+    }
+    font-size: medium;
+    &--large {
+        font-size: large;
+    }
+}
+input{
+    border:0;
+    border-bottom: $global-palette-4 2px solid;
+    background-color: $global-palette-2;
+    padding: $form-input-padding;
+}
+textarea {
+    width: auto;
+    border: 2px solid $global-palette-4;
+    background-color: $global-palette-2;
+    resize: vertical;
+    padding: $form-input-padding;
+}
+.form__error {
+    & * {
+        color: red;
+    }
+    & ul {
+        list-style: none;
+    }
+    & li {
+        font-size: medium;
+    }
+}
+.button-area{
+    display: flex;
+    justify-content: space-between;
+}
