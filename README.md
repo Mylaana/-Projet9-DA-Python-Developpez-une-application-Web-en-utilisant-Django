@@ -7,6 +7,7 @@ Ce README explique comment installer et configurer l'application Django LIT Revi
 **Installation**  
 **Exécution**  
 **Utilisation**  
+**Tests**  
 
 ## Prérequis
 Avant de commencer, assurez-vous d'avoir les éléments suivants installés sur votre système :
@@ -63,3 +64,8 @@ python manage.py runserver
 ## Utilisation
 L'application est maintenant accessible à l'adresse http://localhost:8000/.  
 Vous pouvez également vous connecter à l'interface d'administration http://localhost:8000/admin avec le superutilisateur que vous avez créé et explorer les fonctionnalités de l'application.
+
+## Tests
+A des fins de test, deux users sont créés dans la base :
+- un superuser ID: admin-oc Password:password-oc
+- un user ID: user1 Password:secret123A$
