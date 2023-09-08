@@ -18,7 +18,7 @@ pip : Le gestionnaire de paquets Python.
 ## Installation
 **Clonez ce dépôt sur votre machine locale en utilisant la commande suivante :**
 ```
-git clone https://github.com/votre-utilisateur/votre-projet.git
+git clone https://github.com/Mylaana/Projet9-DA-Python-Developpez-une-application-Web-en-utilisant-Django.git
 ```
 **Accédez au répertoire du projet :**
 ```
